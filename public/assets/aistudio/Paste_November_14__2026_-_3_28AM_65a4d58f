@@ -1,0 +1,773 @@
+PEMBAHASAN LENGKAP
+Kuis Olimpiade Fisika SMP
+50 soal  ·  cara menjawab langkah demi langkah  ·  tips untuk soal serupa
+Halo, Calon Juara Fisika!
+Dokumen ini berisi pembahasan semua soal dari Kuis Olimpiade Fisika Interaktif. Setiap soal dijelaskan pelan-pelan: apa yang diketahui, rumus yang dipakai, sampai cara menghitungnya. Di bagian akhir setiap soal ada tips supaya kamu siap kalau menemui soal yang mirip di olimpiade.
+Cara memakai dokumen ini:
+•	Kerjakan soalnya dulu sendiri, jangan langsung mengintip jawaban.
+•	Setelah itu cocokkan jawabanmu dengan kunci, lalu baca bagian “Cara menjawab”.
+•	Kalau jawabanmu salah, cari tahu di langkah mana kamu tersesat. Itu bagian terpenting untuk belajar.
+•	Catat bagian “Tips soal serupa” di buku catatanmu.
+Aturan skor di kuis: jawaban benar +4, jawaban salah −1, tidak dijawab 0.
+10 Tips Jitu Menghadapi Olimpiade Fisika SMP
+Tip 1: Baca soal dengan tenang. Garis bawahi apa yang ditanyakan dan data penting. Banyak jawaban salah bukan karena rumusnya lupa, tetapi karena salah membaca soal.
+Tip 2: Tulis “diketahui” dan “ditanya”. Cuma butuh 10 detik, tapi membuat pikiranmu lebih rapi dan mengurangi salah hitung.
+Tip 3: Samakan satuan dulu. Ubah cm ke m, gram ke kg, celsius ke kelvin (kalau soalnya tentang gas), dan perhatikan awalan seperti mili, mikro, dan piko. Satuan yang salah adalah jebakan nomor satu.
+Tip 4: Buat sketsa kecil. Gambar pipa, tuas, rangkaian, atau grafik. Banyak soal terasa mudah setelah digambar.
+Tip 5: Perkirakan jawaban kasar dulu. Bulatkan angka lalu hitung cepat. Pilihan yang jauh dari perkiraanmu bisa langsung dicoret.
+Tip 6: Waspadai data pengecoh. Kadang soal memberi informasi yang tidak dipakai (misalnya soal tali nomor 15). Pilih hanya data yang dibutuhkan.
+Tip 7: Pecah soal panjang menjadi tahap-tahap. Contohnya soal gaya dan gesekan (nomor 16) atau soal campuran es dan air (nomor 49). Selesaikan satu tahap, lalu lanjut ke tahap berikutnya.
+Tip 8: Atur strategi skor. Karena salah dikurangi 1 dan benar ditambah 4, menebak asal-asalan tidak untung. Tetapi kalau kamu bisa mencoret minimal 1 pilihan yang pasti salah, menebak mulai menguntungkan. Kalau sama sekali tidak tahu, lebih aman dikosongkan.
+Tip 9: Kerjakan yang mudah dulu. Tandai soal yang sulit, lalu kembali ke sana setelah semua soal mudah selesai. Jangan menghabiskan waktu terlalu lama di satu soal.
+Tip 10: Cek akhir jawabanmu. Apakah satuannya sudah benar? Apakah angkanya masuk akal? (Contoh: lebar lembah tidak mungkin 0,5 meter.)
+Peta Topik Soal
+Soal-soal di kuis ini terbagi ke beberapa topik. Gunakan peta ini untuk mengetahui topik mana yang perlu kamu perkuat.
+Topik	Nomor soal
+Suhu dan Kalor	6, 8, 9, 17, 22, 30, 36, 37, 39, 49
+Fluida (tekanan, apung, hidrolik)	4, 5, 11, 29, 34, 44, 45
+Gelombang dan Bunyi	3, 13, 14, 15, 24, 33, 50
+Listrik dan Magnet	7, 12, 25, 27, 32, 43, 47
+Pesawat Sederhana	2, 19, 21, 23, 35, 48
+Astronomi dan Bumi	18, 26, 28, 31, 38, 46
+Gerak dan Gaya	1, 10, 16, 41, 42
+Alat Optik	40
+Pengukuran (angka penting)	20
+Kunci Jawaban Ringkas
+Daftar jawaban untuk semua soal. Gunakan setelah kamu selesai mengerjakan.
+No	Jwb	Topik	No	Jwb	Topik
+1	D	Membaca Grafik Gerak (jarak terhadap waktu)	26	C	Mengapa Bulan Tidak Punya Atmosfer
+2	E	Roda Bergigi	27	D	Gaya Tolak Dua Muatan (Hukum Coulomb)
+3	B	Gelombang Bunyi di Pipa Terbuka	28	C	Komet, Meteorit, Meteor, dan Meteoroid
+4	C	Bola Mengapung di Minyak	29	A	Dongkrak Hidrolik (Hukum Pascal)
+5	A	Tekanan Astronot di Bulan	30	C	Rumah yang Sejuk
+6	B	Mengubah Suhu Celsius ke Fahrenheit	31	E	Selisih Waktu Antar Kota
+7	C	Kawat Dipotong Lalu Dirangkai	32	A	Gaya Lorentz pada Kawat
+8	B	Pemanas Listrik dan Kalor	33	D	Fathometer Mencari Puing Pesawat
+9	C	Termometer Buatan X	34	B	Mesin Hidrolik Pengangkat Mobil
+10	C	Balok Didorong di Lantai Licin	35	C	Tuas Digabung dengan Katrol Tetap
+11	C	Miniatur Balon Udara	36	A	Gas Dipanaskan pada Tekanan Tetap
+12	C	Rangkaian LC dan Gelombang Radio	37	A	Asap dalam Kotak Kaca
+13	B	Gema di Lembah	38	E	Asteroid dan Komet
+14	C	Sonar Kapal	39	B	Kawat Besi dan Kuningan Dipanaskan
+15	D	Gelombang pada Tali	40	C	Teropong Bintang dan Teropong Bumi
+16	D	Gaya, Gesekan, dan Balok	41	B	Bola Menggelinding di Bidang Miring
+17	D	Grafik Pemanasan Es	42	C	Joni Menyusul Dava
+18	C	Pasang Purnama	43	D	Memperkuat Medan Magnet Kawat Berarus
+19	D	Katrol untuk Menimba Air	44	A	Manometer Raksa
+20	E	Angka Penting pada Perkalian	45	A	Percobaan Barometer Torricelli
+21	B	Tuas (Kesetimbangan)	46	E	Menimbang Massa Matahari
+22	A	Pemuaian Kawat Platina	47	D	Transformator
+23	B	Tuas Ahmad dan Budi	48	A	Bidang Miring Licin
+24	A	Pipa Organa Dipendekkan	49	A	Campuran Air dan Es (Asas Black)
+25	B	Empat Hambatan 40 Ω	50	A	Resonansi pada Tabung
+Catatan: soal nomor 12, 20, dan 50 punya catatan khusus. Lihat pembahasannya.
+Pembahasan Soal 1 sampai 50
+Soal 1  ·  Membaca Grafik Gerak (jarak terhadap waktu)
+Gerak tiga buah mobil digambarkan oleh tiga grafik di bawah ini. Pernyataan yang benar tentang gerak ketiga mobil tersebut adalah...
+Gambar: Ada tiga grafik jarak (s) terhadap waktu (t). Grafik Mobil 1 berupa garis melengkung yang makin curam, Mobil 2 berupa garis datar, dan Mobil 3 berupa garis lurus miring naik.
+A.  Mobil 1 bergerak lurus berubah beraturan, mobil 2 bergerak lurus berubah beraturan, mobil 3 gerak lurus beraturan.
+B.  Mobil 1 bergerak lurus berubah beraturan, mobil 2 bergerak lurus beraturan, mobil 3 bergerak lurus beraturan.
+C.  Mobil 1 berada dalam keadaan diam, mobil 2 dalam keadaan diam, mobil 3 bergerak lurus beraturan.
+D.  Mobil 1 bergerak lurus berubah beraturan (GLBB), mobil 2 dalam keadaan diam, mobil 3 bergerak lurus beraturan (GLB).
+E.  Mobil 1 berada dalam keadaan diam, mobil 2 bergerak lurus beraturan, mobil 3 bergerak lurus berubah beraturan.
+Jawaban: D. Mobil 1 bergerak lurus berubah beraturan (GLBB), mobil 2 dalam keadaan diam, mobil 3 bergerak lurus beraturan (GLB).
+Cara menjawab:
+Langkah 1: Ingat dulu: pada grafik jarak–waktu, kemiringan garis menunjukkan kecepatan.
+Langkah 2: Mobil 1: garisnya melengkung dan makin curam. Artinya kecepatannya makin lama makin besar, jadi mobil sedang dipercepat. Ini namanya GLBB (Gerak Lurus Berubah Beraturan).
+Langkah 3: Mobil 2: garisnya datar. Waktu berjalan tetapi jaraknya tidak berubah, jadi mobil diam.
+Langkah 4: Mobil 3: garisnya lurus miring. Kecepatannya tetap, jadi ini GLB (Gerak Lurus Beraturan).
+Langkah 5: Cocokkan: Mobil 1 GLBB, Mobil 2 diam, Mobil 3 GLB. Itu ada di pilihan D.
+Tips soal serupa: Pada grafik jarak–waktu, tanya dirimu: garisnya datar, lurus miring, atau melengkung? Datar = diam, lurus miring = kecepatan tetap, melengkung = kecepatan berubah. Hati-hati, kalau grafiknya kecepatan–waktu, garis datar justru berarti kecepatan tetap (GLB), bukan diam!
+Soal 2  ·  Roda Bergigi
+Di sebuah pabrik mainan, seorang insinyur merancang pesawat mainan dengan roda bergigi perbandingan 1:6. Ketika ditarik dengan gaya 300 Newton, berapakah gaya yang dihasilkan oleh roda bergigi tersebut?
+A.  50 N
+B.  100 N
+C.  300 N
+D.  1200 N
+E.  1800 N
+Jawaban: E. 1800 N
+Cara menjawab:
+Langkah 1: Soal ini menyebut perbandingan roda bergigi 1 : 6 dan gaya tarik 300 N. Pada rancangan ini, gaya yang dihasilkan diperbesar 6 kali.
+Langkah 2: Hitung: gaya yang dihasilkan = 300 N × 6 = 1.800 N.
+Langkah 3: Cek jebakan: kalau kamu malah membagi 300 ÷ 6, kamu akan dapat 50 N (pilihan A). Itu terjadi kalau arah perbandingannya terbalik.
+Tips soal serupa: Baca kalimat soal dengan teliti untuk tahu apakah gaya diperbesar atau diperkecil. Ingat prinsip “mudah dibayar dengan jauh”: alat yang membuat gaya jadi besar biasanya membuat gerakannya jadi lambat atau pendek, karena energi tidak muncul dari nol.
+Soal 3  ·  Gelombang Bunyi di Pipa Terbuka
+Sebuah tabung panjang terbuka di kedua ujungnya memiliki panjang 60 cm. Di dalam tabung terdapat 3 simpangan puncak akibat gelombang. Jika kecepatan gelombang 320 m/s, berapakah frekuensi gelombang?
+A.  400 Hz
+B.  800 Hz
+C.  1200 Hz
+D.  1600 Hz
+E.  2000 Hz
+Jawaban: B. 800 Hz
+Cara menjawab:
+Langkah 1: Ubah satuan dulu: 60 cm = 0,6 m.
+Langkah 2: Pipa terbuka di kedua ujungnya. Setiap perut (puncak simpangan) panjangnya setengah gelombang. Ada 3 perut, jadi 0,6 m = 3 × (setengah gelombang). Satu gelombang penuh (λ) = 2 × 0,6 ÷ 3 = 0,4 m.
+Langkah 3: Frekuensi: f = v ÷ λ = 320 ÷ 0,4 = 800 Hz.
+Tips soal serupa: Selalu gambar sketsa pipanya. Pipa terbuka kedua ujung: ujung-ujungnya perut. Satu perut = setengah gelombang. Dan jangan lupa mengubah cm menjadi m sebelum menghitung.
+Soal 4  ·  Bola Mengapung di Minyak
+Sebuah bola bermassa 101,25 gram ditaruh dalam wadah berisi minyak (massa jenis 0,9 g/cc). Bola mengapung dengan separuh bagiannya berada di bawah permukaan minyak. Berdasarkan kondisi tersebut disimpulkan bahwa...
+A.  Massa jenis bola = 0,50 g/cc dan volume total bola = 250 cc
+B.  Massa jenis bola = 0,90 g/cc dan volume total bola = 200 cc
+C.  Massa jenis bola = 0,45 g/cc dan volume total bola = 225 cc
+D.  Massa jenis bola = 0,40 g/cc dan volume total bola = 225 cc
+E.  Massa jenis bola = 0,60 g/cc dan volume total bola = 250 cc
+Jawaban: C. Massa jenis bola = 0,45 g/cc dan volume total bola = 225 cc
+Cara menjawab:
+Langkah 1: Bola mengapung dengan separuh bagiannya tercelup. Artinya massa jenis bola = ½ × massa jenis minyak = ½ × 0,9 = 0,45 g/cc.
+Langkah 2: Volume total bola = massa ÷ massa jenis = 101,25 ÷ 0,45 = 225 cc.
+Langkah 3: Pilihan yang cocok: massa jenis 0,45 g/cc dan volume 225 cc, yaitu C.
+Tips soal serupa: Untuk benda yang mengapung: massa jenis benda = (bagian yang tercelup) × massa jenis cairan. Separuh tercelup berarti massa jenis benda setengah dari cairannya. Pilihan yang “angkanya bulat” (misalnya 0,50) sering menjadi pengecoh.
+Soal 5  ·  Tekanan Astronot di Bulan
+Seorang astronot bermassa 120 kg di Bulan (g = 1,6 m/s²). Berdiri dengan 2 kaki (luas kontak 0,08 m²), lalu berdiri dengan 1 kaki (luas 0,04 m²). Bandingkan tekanan yang diberikan!
+A.  P 2 sepatu = 2,4 kPa, P 1 sepatu = 4,8 kPa ; Rasio = 2 kali
+B.  P 2 sepatu = 4,8 kPa, P 1 sepatu = 2,4 kPa ; Rasio = 1/2 kali
+C.  P 2 sepatu = 1,2 kPa, P 1 sepatu = 2,4 kPa ; Rasio = 2 kali
+D.  P 2 sepatu = 2,4 kPa, P 1 sepatu = 2,4 kPa ; Rasio = 1 kali
+E.  P 2 sepatu = 9,6 kPa, P 1 sepatu = 4,8 kPa ; Rasio = 1/2 kali
+Jawaban: A. P 2 sepatu = 2,4 kPa, P 1 sepatu = 4,8 kPa ; Rasio = 2 kali
+Cara menjawab:
+Langkah 1: Hitung berat astronot di Bulan: w = m × g = 120 × 1,6 = 192 N.
+Langkah 2: Berdiri dengan dua kaki: tekanan = gaya ÷ luas = 192 ÷ 0,08 = 2.400 Pa = 2,4 kPa.
+Langkah 3: Berdiri dengan satu kaki: tekanan = 192 ÷ 0,04 = 4.800 Pa = 4,8 kPa.
+Langkah 4: Perbandingannya: tekanan satu kaki 2 kali lebih besar daripada dua kaki. Itu pilihan A.
+Tips soal serupa: Gaya sama, luas makin kecil, tekanan makin besar. Itu sebabnya pisau tajam mudah memotong. Kamu bahkan bisa menjawab tanpa menghitung: luas jadi setengah berarti tekanan jadi dua kali. Ingat juga 1 kPa = 1.000 Pa.
+Soal 6  ·  Mengubah Suhu Celsius ke Fahrenheit
+Suhu ruangan 26°C. Terdapat Termometer A (Fahrenheit, titik didih 212°F) and B (Reamur, titik didih 80°R). Langkah konversi ke termometer A (Fahrenheit) adalah...
+A.  Menambah suhu Celsius dengan angka 273
+B.  Mengkali dengan 9/5 lalu menambah dengan 32
+C.  Mengkali suhu Celsius dengan faktor 5/9
+D.  Mengkali suhu Celsius dengan faktor 4/5
+E.  Mengurangi suhu Celsius dengan angka 273
+Jawaban: B. Mengkali dengan 9/5 lalu menambah dengan 32
+Cara menjawab:
+Langkah 1: Skala Celsius dari titik beku sampai didih ada 100 bagian (0 sampai 100). Skala Fahrenheit ada 180 bagian (32 sampai 212).
+Langkah 2: Perbandingan 180 : 100 sama dengan 9 : 5. Jadi setiap 1°C setara dengan 9/5 °F.
+Langkah 3: Titik beku air di Fahrenheit adalah 32, bukan 0, jadi hasilnya harus ditambah 32.
+Langkah 4: Langkahnya: kalikan 9/5 lalu tambah 32 (pilihan B). Contoh: 26°C → 26 × 9/5 = 46,8 → 46,8 + 32 = 78,8°F.
+Tips soal serupa: Hafalkan tabel titik beku dan titik didih: Celsius 0 dan 100, Reamur 0 dan 80, Fahrenheit 32 dan 212, Kelvin 273 dan 373. Kelvin hanya digeser (C + 273), tidak dikali apa-apa.
+Soal 7  ·  Kawat Dipotong Lalu Dirangkai
+Sebatang kawat aluminium panjang L dan luas penampang A dipotong menjadi 5 bagian yang sama. Jika kelima potongan ini kemudian dirangkai, perbandingan hambatan minimum dan maksimum adalah...
+A.  1 : 5
+B.  1 : 10
+C.  1 : 25
+D.  1 : 50
+E.  1 : 100
+Jawaban: C. 1 : 25
+Cara menjawab:
+Langkah 1: Misalkan hambatan kawat utuh = R. Kawat dipotong menjadi 5 bagian sama panjang, jadi tiap potongan hambatannya r = R ÷ 5 (lebih pendek berarti hambatannya lebih kecil).
+Langkah 2: Hambatan minimum: 5 potongan dirangkai paralel. Hasilnya r ÷ 5 = R ÷ 25.
+Langkah 3: Hambatan maksimum: 5 potongan dirangkai seri. Hasilnya 5 × r = R.
+Langkah 4: Perbandingan minimum : maksimum = (R ÷ 25) : R = 1 : 25 (pilihan C).
+Tips soal serupa: Ingat dua kata kunci: seri membuat hambatan besar (dijumlahkan), paralel membuat hambatan kecil (kalau n hambatan sama, hasilnya dibagi n). Jebakan umum: lupa bahwa potongan kawat juga sudah lebih kecil hambatannya.
+Soal 8  ·  Pemanas Listrik dan Kalor
+Pemanas listrik mencairkan 200 gram es 0°C dalam 4 detik (Kalor lebur es = 80 kal/g). Berapa waktu yang dibutuhkan pemanas untuk memanaskan 500 gram air dari 25°C ke 75°C (c = 1 kal/g°C)?
+A.  5,50 detik
+B.  6,25 detik
+C.  7,00 detik
+D.  7,50 detik
+E.  8,50 detik
+Jawaban: B. 6,25 detik
+Cara menjawab:
+Langkah 1: Tahap 1 (mencari daya pemanas): kalor untuk melebur 200 g es = 200 × 80 = 16.000 kal. Itu dicapai dalam 4 detik, jadi pemanas memberi 16.000 ÷ 4 = 4.000 kal tiap detik.
+Langkah 2: Tahap 2: kalor untuk menaikkan suhu 500 g air dari 25°C ke 75°C = 500 × 1 × 50 = 25.000 kal.
+Langkah 3: Waktu yang dibutuhkan = 25.000 ÷ 4.000 = 6,25 detik (pilihan B).
+Tips soal serupa: Soal dua tahap: cari dulu “kecepatan kerja” alatnya (daya, yaitu kalor per detik), lalu pakai untuk tahap berikutnya. Ingat dua rumus: Q = m × L saat berubah wujud (suhu tetap), dan Q = m × c × ΔT saat suhu berubah.
+Soal 9  ·  Termometer Buatan X
+Termometer X memiliki titik beku -30°X dan titik didih 120°X. Jika suhu ruangan terukur 32°C, berapakah suhu pada termometer X?
+A.  8°X
+B.  -8°X
+C.  18°X
+D.  -18°X
+E.  28°X
+Jawaban: C. 18°X
+Cara menjawab:
+Langkah 1: Rentang termometer X: dari −30 sampai 120, jadi ada 150 bagian. Rentang Celsius ada 100 bagian.
+Langkah 2: Suhu 32°C berarti 32/100 dari rentang. Di termometer X itu sama dengan 0,32 × 150 = 48 bagian di atas titik beku.
+Langkah 3: Suhu X = titik beku X + 48 = −30 + 48 = 18°X (pilihan C).
+Tips soal serupa: Bayangkan dua tangga dengan jumlah anak tangga berbeda. Cari posisi sebagai pecahan dari bawah ke atas, lalu terapkan pecahan itu di tangga satunya. Jangan lupa menambahkan titik bekunya, apalagi kalau nilainya negatif.
+Soal 10  ·  Balok Didorong di Lantai Licin
+Balok 4 kg kecepatan awal 10 m/s didorong gaya 200 N di atas lantai licin. Tentukan energi kinetik sistem ketika t = 2 detik!
+A.  135.200 Joule
+B.  12.100 Joule
+C.  24.200 Joule
+D.  50.000 Joule
+E.  88.000 Joule
+Jawaban: C. 24.200 Joule
+Cara menjawab:
+Langkah 1: Percepatan: a = F ÷ m = 200 ÷ 4 = 50 m/s².
+Langkah 2: Kecepatan setelah 2 detik: v = kecepatan awal + a × t = 10 + 50 × 2 = 110 m/s.
+Langkah 3: Energi kinetik: Ek = ½ × m × v² = ½ × 4 × 110² = 2 × 12.100 = 24.200 J (pilihan C).
+Tips soal serupa: Jangan lupa menambahkan kecepatan awal. Lantai licin berarti tidak ada gesekan, jadi seluruh gaya dipakai untuk mempercepat balok. Hati-hati menghitung kuadrat: 110 × 110 = 12.100.
+Soal 11  ·  Miniatur Balon Udara
+Aldi membuat miniatur balon udara. Untuk memastikan miniatur balon udara tersebut dapat melayang/naik, maka Aldi perlu menaikkan...
+A.  Massa jenis udara di bagian luar balon
+B.  Luas penampang dan massa miniatur balon
+C.  Suhu udara dalam serta volume balon
+D.  Gaya gravitasi lokal dan massa balon
+E.  Massa total bahan pembuat balon udara
+Jawaban: C. Suhu udara dalam serta volume balon
+Cara menjawab:
+Langkah 1: Balon akan naik kalau gaya apung (dorongan ke atas dari udara) lebih besar daripada berat balon.
+Langkah 2: Gaya apung makin besar kalau volume balon makin besar, karena balon menggeser lebih banyak udara.
+Langkah 3: Udara di dalam balon yang dipanaskan akan memuai dan menjadi lebih ringan, sehingga berat balon berkurang.
+Langkah 4: Jadi Aldi perlu menaikkan suhu udara di dalam dan volume balon (pilihan C).
+Tips soal serupa: Untuk soal “kenapa benda naik atau melayang”, bandingkan gaya apung dengan berat. Menambah massa bahan balon justru membuat balon makin berat, jadi makin sulit naik.
+Soal 12  ·  Rangkaian LC dan Gelombang Radio
+Rangkaian LC terdiri dari kapasitor 40 µF dan induktor 25 mH. Berapakah panjang gelombang elektromagnetik resonansi yang dipancarkan (c = 3 × 108 m/s)?
+A.  628 m
+B.  942 m
+C.  1.884 m
+D.  3.768 m
+E.  1.968 m
+Jawaban: C. 1.884 m
+Cara menjawab:
+Langkah 1: Ubah satuan dulu: C = 40 µF = 40 × 10-6 F dan L = 25 mH = 25 × 10-3 H.
+Langkah 2: Kalikan L × C = 25 × 10-3 × 40 × 10-6 = 1.000 × 10-9 = 10-6. Akar dari angka itu adalah 10-3.
+Langkah 3: Pakai rumus λ = 2 × π × c × akar(L × C). Dengan π ≈ 3,14: 2 × 3,14 × 3 × 108 = 1,884 × 109.
+Langkah 4: Kalikan dengan 10-3: hasilnya 1,884 × 106 m. Deretan angkanya adalah 1884, sama dengan angka pada pilihan C.
+Catatan penting: Dengan satuan seperti yang tertulis di soal, hasil hitungannya sebenarnya sekitar 1.884.000 m, sedangkan pilihan C tertulis 1.884 m (selisih tiga angka nol). Kalau kapasitornya 40 pF (bukan 40 µF), hasilnya pas 1.884 m. Jadi kemungkinan ada salah ketik satuan di soal. Tetap pilih C karena angkanya paling cocok, dan sebaiknya soal dicek lagi ke sumber aslinya.
+Tips soal serupa: Soal ini tingkatnya sudah di atas SMP biasa. Yang paling penting diuji adalah kemampuan mengubah awalan satuan: mili (m) = 10-3, mikro (µ) = 10-6, piko (p) = 10-12. Salah satu pangkat saja bisa membuat jawabanmu meleset ribuan kali. Kalau hasil hitunganmu angkanya sama tapi pangkatnya beda, curigai satuan.
+Soal 13  ·  Gema di Lembah
+Seorang anak di tebing meniup peluit 500 Hz dan panjang gelombang 0,68 m. Waktu pantul gema 4 detik. Lebar lembah tersebut adalah...
+A.  340 m
+B.  680 m
+C.  1.020 m
+D.  1.360 m
+E.  2.720 m
+Jawaban: B. 680 m
+Cara menjawab:
+Langkah 1: Cari cepat rambat bunyi: v = f × λ = 500 × 0,68 = 340 m/s.
+Langkah 2: Waktu 4 detik adalah waktu bunyi pergi dan pulang (bolak-balik).
+Langkah 3: Lebar lembah = v × t ÷ 2 = 340 × 4 ÷ 2 = 680 m (pilihan B).
+Tips soal serupa: Pada soal gema dan sonar, jarak selalu dibagi 2, karena bunyi menempuh jarak itu dua kali (pergi dan pulang). Pilihan 1.360 m adalah jebakan kalau kamu lupa membagi 2.
+Soal 14  ·  Sonar Kapal
+Sonar kapal memancarkan gelombang di laut (v = 1500 m/s). Bunyi pantul diterima kembali setelah 2 detik. Kedalaman laut tersebut adalah...
+A.  375 m
+B.  750 m
+C.  1.500 m
+D.  3.000 m
+E.  6.000 m
+Jawaban: C. 1.500 m
+Cara menjawab:
+Langkah 1: Bunyi sonar pergi ke dasar laut lalu memantul kembali, jadi 2 detik adalah waktu pergi-pulang.
+Langkah 2: Kedalaman = v × t ÷ 2 = 1.500 × 2 ÷ 2 = 1.500 m (pilihan C).
+Tips soal serupa: Rumusnya sama dengan soal gema: jarak = cepat rambat × waktu ÷ 2. Jebakan: kalau lupa membagi 2, kamu akan memilih 3.000 m.
+Soal 15  ·  Gelombang pada Tali
+Seutas tali panjang 12 m digerakkan sehingga waktu 1 gelombang 0,2 detik dan cepat rambat 15 m/s. Banyak gelombang terbentuk jika simpangan 10 cm adalah...
+A.  1 gelombang
+B.  2 gelombang
+C.  3 gelombang
+D.  4 gelombang
+E.  5 gelombang
+Jawaban: D. 4 gelombang
+Cara menjawab:
+Langkah 1: Satu gelombang butuh waktu 0,2 detik, artinya periode T = 0,2 s.
+Langkah 2: Panjang satu gelombang: λ = v × T = 15 × 0,2 = 3 m.
+Langkah 3: Banyak gelombang pada tali 12 m = 12 ÷ 3 = 4 gelombang (pilihan D).
+Tips soal serupa: Keterangan “simpangan 10 cm” tidak dipakai sama sekali. Soal olimpiade sering memberi data pengecoh, jadi pilih data yang benar-benar dibutuhkan. Ingat v = λ ÷ T, sehingga λ = v × T.
+Soal 16  ·  Gaya, Gesekan, dan Balok
+Gaya F bekerja pada balok 5000 gram sehingga resultan gaya 20 N selama 2 detik. Saat gaya dihilangkan, balok menempuh 2,5 m lalu berhenti. Besar gaya dorong awal F adalah...
+A.  64 N
+B.  68 N
+C.  74 N
+D.  84 N
+E.  100 N
+Jawaban: D. 84 N
+Cara menjawab:
+Langkah 1: Ubah satuan: 5.000 gram = 5 kg.
+Langkah 2: Fase 1 (didorong 2 detik): percepatan = resultan gaya ÷ massa = 20 ÷ 5 = 4 m/s². Kecepatan di akhir detik ke-2 = 4 × 2 = 8 m/s.
+Langkah 3: Fase 2 (gaya dilepas): balok melambat karena gesekan dan berhenti setelah 2,5 m. Pakai v² = 2 × a × s, yaitu 64 = 2 × a × 2,5, sehingga perlambatan a = 12,8 m/s².
+Langkah 4: Gaya gesek = m × a = 5 × 12,8 = 64 N.
+Langkah 5: Pada fase 1, resultan = gaya dorong − gesekan, jadi 20 = F − 64. Maka F = 84 N (pilihan D).
+Tips soal serupa: Pecah soal yang panjang menjadi dua fase: saat didorong, resultan = gaya − gesekan; saat gaya dilepas, hanya gesekan yang memperlambat balok. Rumus v² = 2 × a × s sangat berguna kalau waktunya tidak diketahui.
+Soal 17  ·  Grafik Pemanasan Es
+Es 60 gram dipanaskan dari -5°C menjadi air 80°C. Banyaknya kalor yang diperlukan khusus pada proses C ke D (pemanasan air 0°C ke 80°C) adalah...
+Gambar: Grafik suhu terhadap kalor dengan titik A, B, C, D. A ke B: es naik suhunya sampai 0°C. B ke C: es melebur (suhu tetap). C ke D: air memanas dari 0°C sampai 80°C.
+A.  125 kalori
+B.  3.000 kalori
+C.  4.000 kalori
+D.  4.800 kalori
+E.  124 kalori
+Jawaban: D. 4.800 kalori
+Cara menjawab:
+Langkah 1: Soal hanya menanyakan bagian C ke D, yaitu air yang dipanaskan dari 0°C ke 80°C.
+Langkah 2: Pakai Q = m × c × ΔT = 60 × 1 × (80 − 0) = 4.800 kalori (pilihan D).
+Tips soal serupa: Potong grafik menjadi bagian-bagian. Bagian miring berarti suhu berubah (pakai m × c × ΔT). Bagian datar berarti wujud berubah (pakai m × L). Hitung hanya bagian yang ditanyakan, jangan menjumlahkan semuanya.
+Soal 18  ·  Pasang Purnama
+Pasang surut air laut maksimum (pasang purnama) terjadi ketika Matahari, Bumi, dan Bulan berada pada satu garis lurus. Peristiwa ini terjadi saat bulan berada pada fase...
+A.  Fase bulan setengah atau kuartal
+B.  Fase bulan sabit pertama dan akhir
+C.  Fase bulan baru atau bulan purnama
+D.  Fase bulan cembung awal atau akhir
+E.  Fase bulan cekung penumbra bumi
+Jawaban: C. Fase bulan baru atau bulan purnama
+Cara menjawab:
+Langkah 1: Matahari, Bumi, dan Bulan berada dalam satu garis lurus ketika bulan baru (Bulan di antara Matahari dan Bumi) atau bulan purnama (Bumi di antara Matahari dan Bulan).
+Langkah 2: Saat itu tarikan gravitasi Bulan dan Matahari searah dan saling menambah, sehingga air laut pasang paling tinggi.
+Langkah 3: Jawabannya fase bulan baru atau bulan purnama (pilihan C).
+Tips soal serupa: Trik mengingat: segaris berarti pasang besar (pasang purnama). Saat bulan kuartal (setengah), Bulan dan Matahari membentuk sudut siku-siku dan saling mengurangi, sehingga pasangnya kecil (pasang perbani).
+Soal 19  ·  Katrol untuk Menimba Air
+Empat model katrol digunakan untuk menimba air sumur. Model manakah yang membutuhkan gaya paling kecil?
+Gambar: Empat model katrol: I katrol tetap, II katrol bergerak, III katrol ganda (2 roda), IV katrol majemuk (3 roda).
+A.  Model I (Tetap)
+B.  Model II (Bergerak)
+C.  Model III (Ganda)
+D.  Model IV (Katrol Majemuk)
+E.  Semua model sama besar
+Jawaban: D. Model IV (Katrol Majemuk)
+Cara menjawab:
+Langkah 1: Gaya paling kecil dibutuhkan oleh sistem dengan keuntungan mekanis (KM) paling besar.
+Langkah 2: KM katrol sama dengan jumlah tali yang menopang beban. Katrol tetap KM = 1, katrol bergerak KM = 2, dan sistem dengan banyak katrol memiliki KM lebih besar lagi.
+Langkah 3: Model IV (katrol majemuk) punya katrol dan tali paling banyak, jadi KM terbesar dan gaya paling kecil (pilihan D).
+Tips soal serupa: Hitung jumlah tali yang menopang beban. Semakin banyak, semakin ringan menariknya. Tapi ingat harganya: tali yang harus kamu tarik jadi lebih panjang, sehingga usahanya tetap sama.
+Soal 20  ·  Angka Penting pada Perkalian
+Hasil pengukuran tempat pensil memiliki panjang 22,63 cm dan lebar 8,27 cm. Berapakah luas tempat pensil menurut aturan angka penting?
+A.  98,1801 cm²
+B.  98,180 cm²
+C.  98,18 cm²
+D.  98,19 cm²
+E.  187,2 cm²
+Jawaban: E. 187,2 cm²
+Cara menjawab:
+Langkah 1: Hitung banyak angka penting (AP): 22,63 punya 4 AP, dan 8,27 punya 3 AP.
+Langkah 2: Kalikan: 22,63 × 8,27 = 187,1501.
+Langkah 3: Aturan perkalian: hasilnya memakai angka penting paling sedikit, yaitu 3 AP. Jadi hasilnya sekitar 187 cm².
+Langkah 4: Pilihan A sampai D (sekitar 98) jelas salah. Satu-satunya pilihan yang nilainya sekitar 187 adalah E (187,2).
+Catatan penting: Kalau aturan 3 angka penting dipakai dengan ketat, hasilnya 187 cm², bukan 187,2 (yang punya 4 angka penting). Karena pilihan yang nilainya mendekati hanya E, kunci kuis memilih E. Sebaiknya angka pilihan E dicek lagi ke soal aslinya.
+Tips soal serupa: Perkalian dan pembagian: banyak angka penting hasil = banyak angka penting paling sedikit. Penjumlahan dan pengurangan: banyak angka di belakang koma hasil = yang paling sedikit. Perkiraan cepat membantu: 22 × 8 ≈ 180, jadi pilihan yang sekitar 98 langsung bisa dicoret.
+Soal 21  ·  Tuas (Kesetimbangan)
+Sebuah tuas digunakan untuk mengangkat beban seberat 250 kg dengan gaya 60 kg. Jika panjang lengan kuasa 5 meter, panjang lengan beban adalah...
+A.  1,0 meter
+B.  1,2 meter
+C.  1,4 meter
+D.  1,6 meter
+E.  2,0 meter
+Jawaban: B. 1,2 meter
+Cara menjawab:
+Langkah 1: Rumus tuas: beban × lengan beban = gaya × lengan kuasa.
+Langkah 2: Masukkan angka: 250 × Lb = 60 × 5. Jadi Lb = 300 ÷ 250 = 1,2 m (pilihan B).
+Tips soal serupa: Kalau kedua sisi memakai satuan yang sama (di sini sama-sama kg), satuannya boleh langsung dipakai tanpa diubah. Lengan kuasa yang panjang membuat gaya yang dibutuhkan kecil.
+Soal 22  ·  Pemuaian Kawat Platina
+Kawat platina panjang L bertambah panjang ΔL saat dipanaskan ΔT = 50°C. Jika kawat panjang 2L dipanaskan dari 277 K ke 327 K, pertambahan panjangnya menjadi...
+A.  2 ΔL
+B.  3 ΔL
+C.  4 ΔL
+D.  5 ΔL
+E.  ΔL
+Jawaban: A. 2 ΔL
+Cara menjawab:
+Langkah 1: Selisih suhu: 327 K − 277 K = 50 K. Selisih 50 K sama besar dengan selisih 50°C, jadi kenaikan suhunya sama dengan kondisi awal.
+Langkah 2: Rumus pemuaian: ΔL = panjang awal × α × ΔT. Bahan dan ΔT sama, tetapi panjang awalnya menjadi 2 kali.
+Langkah 3: Maka pertambahan panjangnya juga 2 kali: 2 ΔL (pilihan A).
+Tips soal serupa: Untuk selisih suhu, kelvin dan celsius sama besarnya (yang berbeda hanya titik awalnya, 273). Kalau soal membandingkan dua keadaan, kerjakan dengan perbandingan saja: tidak perlu menghitung angka α.
+Soal 23  ·  Tuas Ahmad dan Budi
+Ahmad dan Budi mengangkat beban dengan tuas. Lengan beban 100 cm, lengan kuasa 200 cm, dan gaya 200 N. Berapa berat beban yang dapat diangkat?
+A.  4000 N
+B.  400 N
+C.  40 N
+D.  500 N
+E.  50 N
+Jawaban: B. 400 N
+Cara menjawab:
+Langkah 1: Rumus tuas: beban × lengan beban = gaya × lengan kuasa.
+Langkah 2: W × 100 = 200 × 200, jadi W = 40.000 ÷ 100 = 400 N (pilihan B).
+Tips soal serupa: Lengan kuasa 2 kali lengan beban berarti beban yang terangkat 2 kali gaya. Perbandingan lengan dalam cm boleh langsung dipakai tanpa mengubah ke meter. Pilihan yang terlalu ekstrem (seperti 4000 N) biasanya salah hitung koma atau nol.
+Soal 24  ·  Pipa Organa Dipendekkan
+Pipa organa menghasilkan nada dasar C. Jika pipa tersebut dipendekkan setengahnya, nada yang dihasilkan menjadi...
+A.  Nada C satu oktaf lebih tinggi dari nada dasar
+B.  Nada C setengah oktaf lebih tinggi dari nada dasar
+C.  Nada C satu oktaf lebih rendah dari nada dasar
+D.  Nada C setengah oktaf lebih rendah dari nada dasar
+E.  Nada C seperempat oktaf lebih rendah dari nada dasar
+Jawaban: A. Nada C satu oktaf lebih tinggi dari nada dasar
+Cara menjawab:
+Langkah 1: Frekuensi nada berbanding terbalik dengan panjang pipa. Pipa lebih pendek menghasilkan nada lebih tinggi.
+Langkah 2: Panjang pipa menjadi setengah, jadi frekuensi menjadi 2 kali lipat.
+Langkah 3: Frekuensi 2 kali lipat disebut naik satu oktaf. Nadanya tetap C, tetapi lebih tinggi satu oktaf (pilihan A).
+Tips soal serupa: Satu oktaf berarti perbandingan frekuensi 2 : 1. Bayangkan seruling kecil (piccolo) yang bunyinya tinggi dibandingkan seruling panjang yang bunyinya rendah.
+Soal 25  ·  Empat Hambatan 40 Ω
+Empat hambatan masing-masing 40 Ω dihubungkan ke sumber 25 Volt. Kuat arus total terbesar dan terkecil yang mungkin terjadi berturut-turut adalah...
+A.  25 A dan 16 A
+B.  2,5 A dan 0,16 A
+C.  2,5 A dan 1,6 A
+D.  0,25 A dan 0,16 A
+E.  1,25 A dan 0,25 A
+Jawaban: B. 2,5 A dan 0,16 A
+Cara menjawab:
+Langkah 1: Arus terbesar terjadi ketika hambatan total paling kecil, yaitu empat hambatan dirangkai paralel: 40 ÷ 4 = 10 Ω. Arusnya I = V ÷ R = 25 ÷ 10 = 2,5 A.
+Langkah 2: Arus terkecil terjadi ketika hambatan total paling besar, yaitu dirangkai seri: 4 × 40 = 160 Ω. Arusnya 25 ÷ 160 ≈ 0,16 A.
+Langkah 3: Urutannya terbesar dan terkecil: 2,5 A dan 0,16 A (pilihan B).
+Tips soal serupa: Hukum Ohm: I = V ÷ R. Hambatan kecil membuat arus besar, hambatan besar membuat arus kecil. Kesalahan umum: terbalik antara seri dan paralel. Ingat, paralel itu “banyak jalan”, jadi arus mengalir lebih mudah.
+Soal 26  ·  Mengapa Bulan Tidak Punya Atmosfer
+Mengapa Bulan tidak memiliki lapisan atmosfer seperti halnya Bumi?
+A.  Karena di Bulan tidak terdapat unsur kimia pembentuk udara
+B.  Karena letak Bulan berada sangat jauh dari sumber energi Matahari
+C.  Karena gravitasi Bulan terlalu lemah menahan molekul gas
+D.  Karena gravitasi permukaan Bulan yang sangat kuat menyerap udara
+E.  Karena paparan radiasi sinar Matahari yang terlalu intensif
+Jawaban: C. Karena gravitasi Bulan terlalu lemah menahan molekul gas
+Cara menjawab:
+Langkah 1: Gravitasi Bulan hanya sekitar seperenam gravitasi Bumi.
+Langkah 2: Molekul gas selalu bergerak cepat. Karena gravitasi Bulan lemah, molekul-molekul itu mudah lepas ke antariksa.
+Langkah 3: Jadi alasan yang benar adalah gravitasi Bulan terlalu lemah untuk menahan gas (pilihan C).
+Tips soal serupa: Waspadai pilihan yang berbunyi “gravitasi sangat kuat”. Gravitasi Bulan itu kecil, bukan besar. Pola yang sama berlaku untuk planet lain: planet besar dan berat (seperti Jupiter) mampu menahan atmosfer tebal, benda kecil seperti Bulan tidak.
+Soal 27  ·  Gaya Tolak Dua Muatan (Hukum Coulomb)
+Muatan +3q berjarak 10 cm dari +2q dengan gaya tolak 2 N. Jika muatan diubah menjadi +1q dan +12q serta jarak didekatkan jadi 5 cm, gaya tolaknya menjadi...
+A.  2 N
+B.  4 N
+C.  8 N
+D.  16 N
+E.  32 N
+Jawaban: D. 16 N
+Cara menjawab:
+Langkah 1: Gaya listrik sebanding dengan hasil kali muatan, dan berbanding terbalik dengan kuadrat jarak.
+Langkah 2: Hasil kali muatan awal: 3 × 2 = 6. Setelah diubah: 1 × 12 = 12. Jadi gaya menjadi 2 kali.
+Langkah 3: Jarak dari 10 cm menjadi 5 cm (setengahnya). Karena jarak dikuadratkan, gaya menjadi 4 kali.
+Langkah 4: Gaya akhir = 2 N × 2 × 4 = 16 N (pilihan D).
+Tips soal serupa: Kerjakan soal seperti ini dengan cara “menjadi berapa kali”, tidak perlu menghitung konstanta k. Ingat: jarak setengah berarti gaya 4 kali (bukan 2 kali), karena jaraknya dikuadratkan.
+Soal 28  ·  Komet, Meteorit, Meteor, dan Meteoroid
+Urutkan ciri benda langit: (1) Sampai tanah, (2) Guratan cahaya di atmosfer, (3) Batuan/logam antariksa, (4) Es & gas menguap berekor. Urutan untuk Komet, Meteorit, Meteor, Meteoroid adalah...
+A.  1, 2, 3, 4
+B.  3, 1, 2, 4
+C.  4, 1, 2, 3
+D.  2, 4, 1, 3
+E.  4, 3, 2, 1
+Jawaban: C. 4, 1, 2, 3
+Cara menjawab:
+Langkah 1: Cocokkan satu per satu: Komet = es dan gas yang menguap lalu berekor (nomor 4).
+Langkah 2: Meteorit = benda yang sampai ke tanah (nomor 1).
+Langkah 3: Meteor = guratan cahaya di atmosfer, sering disebut bintang jatuh (nomor 2).
+Langkah 4: Meteoroid = batuan atau logam di antariksa (nomor 3).
+Langkah 5: Urutan untuk Komet, Meteorit, Meteor, Meteoroid adalah 4, 1, 2, 3 (pilihan C).
+Tips soal serupa: Trik mengingat: Meteoroid melayang di antariksa, Meteor menyala di langit, Meteorit mendarat di tanah. Kamu tinggal ingat urutan tempatnya: luar angkasa, langit, tanah.
+Soal 29  ·  Dongkrak Hidrolik (Hukum Pascal)
+Sistem hidrolik tertutup: d2 = 6 cm dan F2 = 9 x F1. Pernyataan yang benar tentang diameter d1 dan tekanan adalah...
+A.  Diameter d1 = 2 cm dan Tekanan pada kedua piston sama
+B.  Diameter d1 = 3 cm dan Tekanan P1 lebih besar dari P2
+C.  Diameter d1 = 2 cm dan Tekanan P1 lebih besar dari P2
+D.  Diameter d1 = 3 cm dan Tekanan pada kedua piston sama
+E.  Diameter d1 = 4 cm dan Tekanan P1 lebih kecil dari P2
+Jawaban: A. Diameter d1 = 2 cm dan Tekanan pada kedua piston sama
+Cara menjawab:
+Langkah 1: Hukum Pascal: tekanan pada kedua piston sama besar, jadi pernyataan “tekanan sama” sudah pasti benar.
+Langkah 2: Karena tekanan sama, F1 ÷ A1 = F2 ÷ A2. Gaya F2 = 9 × F1, jadi luas A2 = 9 × A1.
+Langkah 3: Luas lingkaran sebanding dengan diameter yang dikuadratkan. Luas 9 kali berarti diameter 3 kali (karena akar 9 = 3).
+Langkah 4: Maka d1 = 6 ÷ 3 = 2 cm. Jawabannya pilihan A.
+Tips soal serupa: Gaya 9 kali berarti diameter 3 kali, bukan 9 kali. Jangan langsung membagi 6 dengan 9. Ingat luas lingkaran bergantung pada diameter kuadrat.
+Soal 30  ·  Rumah yang Sejuk
+Langkah renovasi rumah agar ruangan dalam bersuhu dingin berdasarkan konsep Asas Black dan radiasi termal adalah...
+A.  Menggunakan cat dinding rumah berwarna hitam gelap
+B.  Menggunakan cat dinding rumah berwarna biru gelap
+C.  Menggunakan cat dinding rumah berwarna putih terang
+D.  Menggunakan jendela kaca tanpa pemantul sinar matahari
+E.  Memperbanyak ruangan tertutup rapat tanpa ventilasi
+Jawaban: C. Menggunakan cat dinding rumah berwarna putih terang
+Cara menjawab:
+Langkah 1: Panas dari Matahari sampai ke dinding lewat radiasi (pancaran).
+Langkah 2: Warna gelap menyerap banyak panas radiasi, sedangkan warna terang atau putih memantulkannya.
+Langkah 3: Agar ruangan dalam sejuk, cat dinding dengan warna putih terang (pilihan C).
+Tips soal serupa: Pikirkan baju: baju putih lebih sejuk dipakai saat siang yang terik daripada baju hitam. Benda gelap dan kasar adalah penyerap serta pemancar radiasi yang baik. Benda putih dan mengkilap adalah pemantul yang baik.
+Soal 31  ·  Selisih Waktu Antar Kota
+Kota A (105°BT) menunjukkan pukul 09.12. Pada saat yang sama, Kota B (123°BT) menunjukkan pukul...
+A.  10.12
+B.  09.58
+C.  10.32
+D.  09.42
+E.  10.24
+Jawaban: E. 10.24
+Cara menjawab:
+Langkah 1: Beda bujur = 123° − 105° = 18°.
+Langkah 2: Setiap 1° bujur sama dengan 4 menit. Jadi 18 × 4 = 72 menit = 1 jam 12 menit.
+Langkah 3: Kota B berada di sebelah timur Kota A, jadi waktunya lebih maju: 09.12 + 1 jam 12 menit = 10.24 (pilihan E).
+Tips soal serupa: Ingat: timur lebih cepat (Matahari terbit lebih dulu), barat lebih lambat. Bumi berputar 360° dalam 24 jam, jadi 15° per jam, atau 1° per 4 menit. Jangan lupa mengubah menit menjadi jam dan menit.
+Soal 32  ·  Gaya Lorentz pada Kawat
+Kawat berarus 5 A melewati medan magnet 8 × 10-5 Tesla menghasilkan gaya Lorentz 10 × 10-4 N. Jika kawat dipotong setengahnya, gaya Lorentz menjadi...
+A.  5,0 × 10-4 N
+B.  5,4 × 10-4 N
+C.  3,88 × 10-3 N
+D.  2,6 × 10-3 N
+E.  1,8 × 10-4 N
+Jawaban: A. 5,0 × 10-4 N
+Cara menjawab:
+Langkah 1: Rumus gaya Lorentz: F = B × I × L. Medan magnet (B) dan arus (I) tidak berubah, hanya panjang kawat (L) yang berubah.
+Langkah 2: Kawat dipotong setengahnya, jadi L menjadi setengah. Maka gaya juga menjadi setengah.
+Langkah 3: F baru = 10 × 10-4 ÷ 2 = 5 × 10^{-4} N (pilihan A).
+Tips soal serupa: Kalau hanya satu besaran yang berubah, cukup lihat hubungannya. Gaya sebanding dengan panjang kawat, jadi panjang setengah berarti gaya setengah. Perhatikan pangkat: 10 × 10-4 sama dengan 1 × 10-3.
+Soal 33  ·  Fathometer Mencari Puing Pesawat
+Alat fathometer menerima pantulan gelombang 5 detik setelah dikirim (v = 1400 m/s). Kedalaman puing pesawat adalah...
+A.  2.000 m
+B.  2.500 m
+C.  3.000 m
+D.  3.500 m
+E.  4.000 m
+Jawaban: D. 3.500 m
+Cara menjawab:
+Langkah 1: Gelombang pergi ke dasar laut dan kembali lagi, jadi 5 detik adalah waktu pergi-pulang.
+Langkah 2: Kedalaman = v × t ÷ 2 = 1.400 × 5 ÷ 2 = 3.500 m (pilihan D).
+Tips soal serupa: Sama seperti sonar dan gema: jarak = cepat rambat × waktu ÷ 2. Cara cepat: 1.400 × 5 = 7.000, lalu dibagi 2.
+Soal 34  ·  Mesin Hidrolik Pengangkat Mobil
+Rino menekan pengisap A untuk mengangkat mobil di pengisap B, tetapi gaya F tidak cukup. Langkah pertama yang harus dilakukan Rino adalah...
+A.  Memperbesar diameter dari penampang pengisap A
+B.  Memperkecil diameter dari penampang pengisap A
+C.  Mengubah bentuk geometris dari penampang pengisap A
+D.  Menambah massa pemberat pada penampang pengisap A
+E.  Menambah panjang penampang pada mesin hidrolik B
+Jawaban: B. Memperkecil diameter dari penampang pengisap A
+Cara menjawab:
+Langkah 1: Pada hidrolik, gaya output = gaya input × (luas pengisap B ÷ luas pengisap A).
+Langkah 2: Agar gaya F yang kecil bisa mengangkat mobil, perbandingan luas B terhadap A harus lebih besar.
+Langkah 3: Caranya: memperkecil diameter pengisap A (pilihan B), sehingga luas A mengecil dan hasil bagi menjadi besar.
+Tips soal serupa: Pengisap input dibuat kecil, pengisap output dibuat besar. Dengan begitu gaya kecil bisa mengangkat beban berat. Memang menambah pemberat juga menambah gaya, tetapi soal ini menanyakan langkah yang berkaitan dengan rancangan alat menurut konsep hukum Pascal, yaitu mengubah ukuran penampang.
+Soal 35  ·  Tuas Digabung dengan Katrol Tetap
+Tuas angkat peti 900 N (L_kuasa = 1,2 m, L_beban = 0,3 m) diteruskan ke katrol tetap. Gaya tangan operator dan usahanya jika bergerak 1,5 m adalah...
+A.  169 N dan 326,4 Joule
+B.  179 N dan 326,4 Joule
+C.  225 N dan 337,5 Joule
+D.  225 N dan 467,2 Joule
+E.  337 N dan 467,2 Joule
+Jawaban: C. 225 N dan 337,5 Joule
+Cara menjawab:
+Langkah 1: Gaya pada tuas: F = beban × (lengan beban ÷ lengan kuasa) = 900 × (0,3 ÷ 1,2) = 225 N.
+Langkah 2: Katrol tetap tidak mengubah besar gaya (KM = 1), hanya mengubah arah. Jadi gaya tangan operator tetap 225 N.
+Langkah 3: Usaha = gaya × jarak = 225 × 1,5 = 337,5 J (pilihan C).
+Tips soal serupa: Kalau ada dua alat digabung, selesaikan satu per satu. Katrol tetap hanya mengubah arah gaya, bukan besarnya. Usaha selalu gaya dikali jarak, dengan jarak yang sesuai dengan gaya itu.
+Soal 36  ·  Gas Dipanaskan pada Tekanan Tetap
+Gas 1,5 m³ suhu 13°C ditingkatkan ke 87°C pada tekanan tetap (isobarik). Volume gas baru adalah...
+A.  1,88 m³
+B.  1,98 m³
+C.  2,88 m³
+D.  2,98 m³
+E.  2,78 m³
+Jawaban: A. 1,88 m³
+Cara menjawab:
+Langkah 1: Suhu harus diubah ke kelvin: T1 = 13 + 273 = 286 K dan T2 = 87 + 273 = 360 K.
+Langkah 2: Pada tekanan tetap berlaku V1 ÷ T1 = V2 ÷ T2. Jadi V2 = 1,5 × (360 ÷ 286) ≈ 1,89 m³.
+Langkah 3: Pilihan terdekat adalah 1,88 m³ (pilihan A).
+Tips soal serupa: Hukum Charles: volume sebanding dengan suhu dalam kelvin. Jangan pernah memakai celsius langsung pada rumus gas. Perkiraan cepat: suhu naik sekitar 1,26 kali, jadi 1,5 × 1,26 ≈ 1,89. Kalau hasil hitunganmu dan pilihan beda tipis, pilih yang paling dekat.
+Soal 37  ·  Asap dalam Kotak Kaca
+Asap kertas terbakar dimasukkan lewat pipa B di kotak kaca, lalu asap keluar lewat pipa A dan C. Peristiwa ini menunjukkan perpindahan kalor secara...
+Gambar: Kotak kaca dengan tiga pipa di atasnya (A, B, C). Asap dimasukkan lewat pipa B dan keluar lewat pipa A dan C.
+A.  Perpindahan kalor secara Konveksi alami
+B.  Perpindahan kalor secara Konduksi molekuler
+C.  Perpindahan kalor secara Induksi medan termal
+D.  Perpindahan kalor secara Radiasi gelombang
+E.  Perpindahan kalor secara Distribusi spasial
+Jawaban: A. Perpindahan kalor secara Konveksi alami
+Cara menjawab:
+Langkah 1: Perhatikan: asap (zat) ikut bergerak bersama udara panas.
+Langkah 2: Perpindahan kalor yang disertai perpindahan zat disebut konveksi. Konduksi terjadi lewat zat padat tanpa zatnya berpindah, dan radiasi terjadi tanpa zat perantara.
+Langkah 3: Jadi jawabannya konveksi (pilihan A).
+Tips soal serupa: Tanyakan: “apakah zat atau partikelnya ikut bergerak?” Kalau ya, itu konveksi (terjadi pada zat cair dan gas). Contoh: angin laut, air mendidih, asap naik.
+Soal 38  ·  Asteroid dan Komet
+Perbedaan utama antara Asteroid dan Komet terletak pada...
+A.  Asteroid berukuran lebih besar dibandingkan komet
+B.  Komet ber-orbit melingkar, sedangkan asteroid ber-orbit elips
+C.  Asteroid berukuran jauh lebih kecil dibandingkan komet
+D.  Komet berada di sabuk komet, asteroid di sabuk asteroid
+E.  Asteroid dari batuan/logam, komet dari es/debu menguap
+Jawaban: E. Asteroid dari batuan/logam, komet dari es/debu menguap
+Cara menjawab:
+Langkah 1: Asteroid tersusun dari batuan atau logam padat.
+Langkah 2: Komet tersusun dari es, debu, dan gas beku yang menguap ketika dekat Matahari, sehingga muncul ekor.
+Langkah 3: Perbedaan utama ada pada bahan penyusunnya (pilihan E). Ukuran dan bentuk orbit bukan pembeda utama, karena keduanya mengikuti orbit elips.
+Tips soal serupa: Ingat julukan “komet = bola salju kotor” dan “asteroid = batu angkasa”. Kalau ada pilihan tentang ukuran atau bentuk orbit, periksa lagi karena biasanya itu bukan pembeda yang paling pokok.
+Soal 39  ·  Kawat Besi dan Kuningan Dipanaskan
+Kawat Besi dan Kuningan panjang 200 m dipanaskan dari 20°C ke 30°C. Logam manakah yang memuai paling panjang?
+A.  Besi memuai lebih panjang dengan panjang 200,028 m
+B.  Kuningan memuai lebih panjang karena α kuningan > besi
+C.  Besi memuai lebih panjang karena massa jenisnya besar
+D.  Kedua kawat bertambah panjang secara identik dan sama
+E.  Kuningan memuai lebih panjang dengan panjang 200,010 m
+Jawaban: B. Kuningan memuai lebih panjang karena α kuningan > besi
+Cara menjawab:
+Langkah 1: Rumus pemuaian: ΔL = panjang awal × α × ΔT. Panjang awal (200 m) dan kenaikan suhu (10°C) sama, jadi yang membedakan hanya koefisien muai α.
+Langkah 2: α kuningan (19 × 10-6) lebih besar daripada α besi (12 × 10-6). Jadi kuningan memuai lebih panjang.
+Langkah 3: Cek: besi bertambah 200 × 12 × 10-6 × 10 = 0,024 m, kuningan bertambah 0,038 m (menjadi 200,038 m).
+Langkah 4: Jawabannya pilihan B (karena α kuningan lebih besar).
+Tips soal serupa: Bandingkan hanya besaran yang berbeda. Hati-hati dengan angka di dalam pilihan jawaban: pilihan E menulis “kuningan memuai lebih panjang” (benar) tetapi angka 200,010 m salah. Jangan tergoda pilihan yang separuh benar.
+Soal 40  ·  Teropong Bintang dan Teropong Bumi
+Teropong bintang dan bumi perbesaran M = 4 kali. Fokus objektif f_ob1 = 60 cm dan f_ob2 = 40 cm, fokus pembalik f_p = 10 cm. Perbandingan panjang teropong bintang dan bumi adalah...
+A.  2 : 3
+B.  3 : 2
+C.  5 : 6
+D.  6 : 5
+E.  12 : 15
+Jawaban: C. 5 : 6
+Cara menjawab:
+Langkah 1: Teropong bintang: perbesaran M = f objektif ÷ f okuler, sehingga f okuler = 60 ÷ 4 = 15 cm. Panjang teropong = 60 + 15 = 75 cm.
+Langkah 2: Teropong bumi: f okuler = 40 ÷ 4 = 10 cm. Teropong bumi punya lensa pembalik, sehingga panjangnya = f objektif + 4 × f pembalik + f okuler = 40 + 40 + 10 = 90 cm.
+Langkah 3: Perbandingan 75 : 90. Bagi keduanya dengan 15 menjadi 5 : 6 (pilihan C).
+Tips soal serupa: Teropong bumi lebih panjang karena ada lensa pembalik (tambahan 4 × f pembalik). Hafalkan tiga rumus panjang teropong. Setelah mendapat perbandingan, sederhanakan dengan membagi kedua angka dengan bilangan yang sama.
+Soal 41  ·  Bola Menggelinding di Bidang Miring
+Bola pejal bermassa M menggelinding tanpa selip turun di bidang miring. Percepatan linier bola dipengaruhi oleh...
+Gambar: Segitiga bidang miring dengan sebuah bola pejal berada di permukaan miringnya.
+A.  Hanya nilai percepatan gravitasi bumi g di tempat tersebut
+B.  Momen inersia bola pejal (k = 2/5) dan sudut kemiringan
+C.  Hanya nilai massa total dari bola pejal M
+D.  Nilai kecepatan angin di area sekitar lintasan
+E.  Luas permukaan luar dari bola pejal tersebut
+Jawaban: B. Momen inersia bola pejal (k = 2/5) dan sudut kemiringan
+Cara menjawab:
+Langkah 1: Bola menggelinding berarti sebagian energinya dipakai untuk berputar, sehingga lebih lambat daripada benda yang meluncur.
+Langkah 2: Rumus percepatannya: a = (g × sin θ) ÷ (1 + k). Di sini k adalah konstanta bentuk (untuk bola pejal k = 2/5) dan θ adalah sudut kemiringan.
+Langkah 3: Massa bola M ada di atas dan di bawah rumus, sehingga saling menghilangkan. Massa tidak berpengaruh.
+Langkah 4: Percepatan dipengaruhi oleh bentuk bola (k) dan sudut kemiringan, yaitu pilihan B.
+Tips soal serupa: Seperti Galileo: percepatan benda menggelinding tidak bergantung pada massa maupun ukuran, hanya pada bentuk dan sudut kemiringan. Bola pejal menggelinding lebih cepat daripada bola berongga. Pilihan yang hanya menyebut g saja kurang lengkap, karena sudut ikut berpengaruh.
+Soal 42  ·  Joni Menyusul Dava
+Joni berlari kelajuan 3,60 m/s berada 4 meter di belakang Dava (3,40 m/s). Waktu yang diperlukan Joni untuk menyusul Dava adalah...
+A.  15 sekon
+B.  10 sekon
+C.  20 sekon
+D.  5 sekon
+E.  25 sekon
+Jawaban: C. 20 sekon
+Cara menjawab:
+Langkah 1: Joni berlari 3,60 m/s dan Dava 3,40 m/s, searah. Setiap detik Joni mendekat sejauh selisihnya: 3,60 − 3,40 = 0,20 m.
+Langkah 2: Jarak yang harus dikejar = 4 m.
+Langkah 3: Waktu = jarak ÷ selisih kecepatan = 4 ÷ 0,20 = 20 sekon (pilihan C).
+Tips soal serupa: Kecepatan relatif: kalau searah, kurangkan kecepatannya. Kalau berlawanan arah, jumlahkan. Cek jawabanmu: 0,20 × 20 = 4 meter, pas dengan jarak awal.
+Soal 43  ·  Memperkuat Medan Magnet Kawat Berarus
+Medan magnet yang dihasilkan oleh kawat penghantar berarus listrik dapat diperkuat dengan cara...
+A.  Mengurangi panjang total kawat penghantar listrik
+B.  Mengurangi kuat arus listrik yang mengalir pada kawat
+C.  Menggunakan kawat penghantar berdrameter lebih kecil
+D.  Menggulung kawat menjadi kumparan dengan banyak lilitan
+E.  Menjauhkan kawat penghantar dari objek bermagnetik
+Jawaban: D. Menggulung kawat menjadi kumparan dengan banyak lilitan
+Cara menjawab:
+Langkah 1: Medan magnet dari kawat lurus itu lemah. Kalau kawat digulung menjadi kumparan, medan magnet dari tiap lilitan saling menumpuk.
+Langkah 2: Semakin banyak lilitan, medan magnet semakin kuat.
+Langkah 3: Jawabannya menggulung kawat menjadi kumparan dengan banyak lilitan (pilihan D).
+Tips soal serupa: Tiga cara membuat elektromagnet lebih kuat: perbanyak lilitan, perbesar arus, dan beri inti besi. Menurunkan arus justru melemahkan magnet.
+Soal 44  ·  Manometer Raksa
+Raksa dalam bejana & pipa kaca: permukaan raksa di pipa lebih rendah. Jika P_luar = 0,8 atm, langkah pertama Oca untuk mencari tekanan udara dalam pipa adalah...
+A.  Menyetarakan satuan tekanan udara dari atm ke cmHg
+B.  Membuat perbandingan ukuran diameter bejana dengan pipa
+C.  Membuat perbandingan massa jenis raksa dengan udara
+D.  Mengukur total massa raksa di dalam bejana terbuka
+E.  Mengabaikan tekanan atmosfer udara luar lingkungan
+Jawaban: A. Menyetarakan satuan tekanan udara dari atm ke cmHg
+Cara menjawab:
+Langkah 1: Tekanan udara luar tertulis dalam atm (0,8 atm), sedangkan tinggi raksa nanti dalam cmHg. Satuannya berbeda, jadi tidak bisa langsung dijumlahkan.
+Langkah 2: Karena itu langkah pertama adalah menyamakan satuan: 1 atm = 76 cmHg, sehingga 0,8 atm = 60,8 cmHg.
+Langkah 3: Baru setelah itu tekanan dalam pipa bisa dicari dengan menambah atau mengurangi tinggi raksa. Jawabannya pilihan A.
+Tips soal serupa: Selalu samakan satuan dulu sebelum menghitung. Konversi penting: 1 atm = 76 cmHg = 760 mmHg ≈ 100.000 Pa.
+Soal 45  ·  Percobaan Barometer Torricelli
+Langkah penting Agus dalam eksperimen barometer Torricelli untuk mengukur tekanan atmosfer gunung adalah...
+A.  Mengisi penuh tabung dengan raksa, menutup ujungnya dengan jari, lalu membalikkan ke bejana raksa
+B.  Mengisi tabung kaca hingga separuh bagian volume sebelum dibalikkan
+C.  Meniup tabung kaca sampai steril sebelum diisi dengan cairan raksa
+D.  Menimbang massa tabung kaca kosong sebelum diisi cairan raksa
+E.  Membiarkan tabung kaca terbuka di kedua ujungnya tanpa ditudungi
+Jawaban: A. Mengisi penuh tabung dengan raksa, menutup ujungnya dengan jari, lalu membalikkan ke bejana raksa
+Cara menjawab:
+Langkah 1: Langkah yang benar: (1) isi tabung kaca penuh dengan raksa, (2) tutup ujung tabung dengan jari, (3) balikkan tabung ke dalam bejana berisi raksa, (4) lepaskan jari.
+Langkah 2: Raksa akan turun sedikit dan meninggalkan ruang hampa di bagian atas tabung. Tinggi kolom raksa menunjukkan tekanan atmosfer (sekitar 76 cm di permukaan laut).
+Langkah 3: Jawabannya pilihan A.
+Tips soal serupa: Kata kunci: tabung harus penuh dulu, tertutup, lalu dibalik. Kalau tabung hanya terisi separuh, udara di dalamnya akan mengganggu hasil. Di gunung, kolom raksa lebih rendah karena tekanan udara lebih kecil.
+Soal 46  ·  Menimbang Massa Matahari
+Bumi mengelilingi Matahari (r = 1,5 × 108 km, T = 365 hari). Hitung massa Matahari!
+A.  1,5 × 1027 kg
+B.  3,0 × 1027 kg
+C.  5,0 × 1028 kg
+D.  3,2 × 1029 kg
+E.  2,0 × 1030 kg
+Jawaban: E. 2,0 × 1030 kg
+Cara menjawab:
+Langkah 1: Ubah satuan: jarak r = 1,5 × 108 km = 1,5 × 1011 m. Periode T = 365 × 86.400 s ≈ 3,15 × 107 s.
+Langkah 2: Pakai rumus M = 4 × π² × r³ ÷ (G × T²), dengan G = 6,67 × 10-11.
+Langkah 3: Bagian atas: r³ = 3,375 × 1033; 4π² ≈ 39,5; hasilnya ≈ 1,33 × 1035.
+Langkah 4: Bagian bawah: G × T² ≈ 6,67 × 10-11 × 9,94 × 1014 ≈ 6,63 × 104.
+Langkah 5: M ≈ 1,33 × 1035 ÷ 6,63 × 104 ≈ 2,0 × 10^{30} kg (pilihan E).
+Tips soal serupa: Pada soal dengan angka sangat besar, perhatikan dulu pangkat sepuluhnya. Pilihan jawaban di sini beda pangkat jauh, jadi perkiraan kasar sudah cukup. Massa Matahari sekitar 2 × 1030 kg dan massa Bumi sekitar 6 × 1024 kg adalah angka yang bagus untuk dihafal.
+Soal 47  ·  Transformator
+Transformator menghasilkan Tegangan Primer = 75 Volt dan Tegangan Sekunder = 125 Volt. Perbandingan jumlah lilitan sekunder : primer adalah...
+A.  2 : 3
+B.  3 : 2
+C.  3 : 5
+D.  5 : 3
+E.  5 : 2
+Jawaban: D. 5 : 3
+Cara menjawab:
+Langkah 1: Rumus trafo: Ns ÷ Np = Vs ÷ Vp.
+Langkah 2: Masukkan angka: Ns ÷ Np = 125 ÷ 75 = 5 ÷ 3.
+Langkah 3: Soal meminta perbandingan sekunder : primer = 5 : 3 (pilihan D).
+Tips soal serupa: Baca urutan yang diminta: “sekunder : primer”. Jangan sampai terbalik. Kalau tegangan sekunder lebih besar dari primer, itu trafo penaik tegangan (step-up), dan lilitan sekunder lebih banyak.
+Soal 48  ·  Bidang Miring Licin
+Balok berat 5000 N di bidang miring licin panjang 10 m tinggi 8 m. Tentukan gaya F penahan sejajar bidang miring agar balok tidak turun!
+Gambar: Segitiga bidang miring dengan balok di atasnya. Panjang bidang miring 10 m dan tingginya 8 m.
+A.  4000 N
+B.  4500 N
+C.  5000 N
+D.  5500 N
+E.  6000 N
+Jawaban: A. 4000 N
+Cara menjawab:
+Langkah 1: Pada bidang miring licin, gaya penahan sejajar bidang: F = W × (tinggi ÷ panjang).
+Langkah 2: F = 5.000 × (8 ÷ 10) = 4.000 N (pilihan A).
+Tips soal serupa: Semakin landai bidang miringnya, semakin kecil gaya yang dibutuhkan (tapi lintasannya lebih panjang). Ingat prinsip usaha sama: F × panjang = W × tinggi.
+Soal 49  ·  Campuran Air dan Es (Asas Black)
+X gram air 30°C dicampur Y gram es -10°C. Setelah diaduk 50% es melebur (Suhu campuran = 0°C). Rasio X : Y adalah...
+A.  3 : 2
+B.  2 : 1
+C.  1 : 1
+D.  1 : 2
+E.  2 : 3
+Jawaban: A. 3 : 2
+Cara menjawab:
+Langkah 1: Asas Black: kalor yang dilepas air = kalor yang diterima es.
+Langkah 2: Air X gram turun dari 30°C ke 0°C: kalor lepas = X × 1 × 30 = 30X.
+Langkah 3: Es Y gram menerima kalor dua kali: naik dari −10°C ke 0°C (kalor jenis es 0,5): Y × 0,5 × 10 = 5Y. Lalu separuh es melebur: 0,5 × Y × 80 = 40Y. Total kalor terima = 45Y.
+Langkah 4: Samakan: 30X = 45Y, jadi X : Y = 45 : 30 = 3 : 2 (pilihan A).
+Tips soal serupa: Kerjakan es tahap demi tahap: naikkan suhu dulu, baru melebur. Hafalkan angka penting: kalor jenis air 1 kal/g°C, es 0,5 kal/g°C, dan kalor lebur es 80 kal/g. Kalau hanya sebagian es yang melebur, suhu akhir pasti 0°C.
+Soal 50  ·  Resonansi pada Tabung
+Tabung silinder panjang udara 30 cm di atas air. Garpu tala f = 425 Hz, cepat rambat v = 340 m/s. Apakah terjadi resonansi?
+Gambar: Tabung silinder berisi air di bagian bawah, dengan kolom udara di atas air. Garpu tala digetarkan di mulut tabung.
+A.  Ya, terjadi resonansi kuat pada mode ke-2 (Harmoni ke-3)
+B.  Ya, terjadi resonansi kuat pada mode ke-1 saja
+C.  Tidak terjadi resonansi dalam tabung silinder
+D.  Ya, terjadi resonansi kuat pada mode ke-5
+E.  Terjadi resonansi yang sangat lemah dalam tabung
+Jawaban: A. Ya, terjadi resonansi kuat pada mode ke-2 (Harmoni ke-3)
+Cara menjawab:
+Langkah 1: Hitung panjang gelombang bunyi: λ = v ÷ f = 340 ÷ 425 = 0,8 m = 80 cm.
+Langkah 2: Tabung ini tertutup di bawah (oleh air) dan terbuka di atas. Resonansi terjadi ketika panjang kolom udara = ¼λ, ¾λ, 5/4 λ, dan seterusnya (kelipatan ganjil dari ¼λ). Artinya pada 20 cm, 60 cm, 100 cm, dan seterusnya.
+Langkah 3: Resonansi kedua (disebut harmonik ke-3) terjadi pada panjang ¾λ = 60 cm.
+Langkah 4: Kunci kuis memilih pilihan A (resonansi pada mode ke-2 atau harmonik ke-3), yang cocok dengan panjang kolom udara 60 cm.
+Catatan penting: Di soal tertulis panjang kolom udara 30 cm. Dengan angka itu, 30 cm bukan salah satu dari 20, 60, 100 cm, sehingga sebenarnya tidak terjadi resonansi (jawabannya akan jadi pilihan C). Pilihan A cocok kalau panjang kolomnya 60 cm. Kemungkinan angka di soal salah ketik. Mohon dicek ke soal asli sebelum dipakai untuk menilai.
+Tips soal serupa: Untuk pipa atau tabung tertutup satu ujung, hitung dulu ¼λ, lalu kalikan bilangan ganjil (1, 3, 5, ...). Untuk pipa terbuka kedua ujung, pakai kelipatan ½λ. Selalu cek apakah panjang yang diberikan benar-benar cocok dengan pola itu.
+Contekan Rumus dan Fakta Penting
+Rumus-rumus yang dipakai di soal-soal tadi, dirangkum dalam satu tempat. Hafalkan dan latih terus.
+Topik	Rumus / fakta
+Kecepatan	v = s ÷ t
+Gerak dipercepat (GLBB)	v = v0 + a × t   dan   v2 = v02 + 2 × a × s
+Hukum Newton II	F = m × a
+Berat dan energi kinetik	w = m × g   dan   Ek = ½ × m × v2
+Tekanan zat padat	P = F ÷ A
+Hukum Pascal (hidrolik)	F1 ÷ A1 = F2 ÷ A2   (luas lingkaran ∝ diameter kuadrat)
+Benda mengapung	massa jenis benda = (bagian tercelup) × massa jenis cairan
+Kalor	Q = m × c × ΔT   dan   Q = m × L (saat berubah wujud)
+Asas Black	kalor yang dilepas = kalor yang diterima
+Pemuaian panjang	ΔL = L0 × α × ΔT
+Gas tekanan tetap	V1 ÷ T1 = V2 ÷ T2   (T dalam kelvin)
+Skala suhu	F = 9/5 × C + 32   ;   K = C + 273   ;   C : R = 5 : 4
+Gelombang	v = f × λ   ;   v = λ ÷ T
+Gema dan sonar	jarak = v × t ÷ 2
+Pipa organa	terbuka: L = n × ½λ   ;   tertutup: L = (2n − 1) × ¼λ
+Hukum Ohm dan rangkaian	V = I × R   ;   seri: R dijumlah   ;   paralel (n sama): R ÷ n
+Hukum Coulomb	F ∝ (q1 × q2) ÷ r2
+Gaya Lorentz	F = B × I × L
+Transformator	Ns ÷ Np = Vs ÷ Vp
+Tuas	beban × lengan beban = gaya × lengan kuasa
+Bidang miring	F = W × (tinggi ÷ panjang)
+Katrol	KM = jumlah tali penopang beban (katrol tetap KM = 1)
+Selisih waktu antar kota	1° bujur = 4 menit   (timur lebih cepat)
+Konversi tekanan	1 atm = 76 cmHg = 760 mmHg ≈ 100.000 Pa
+Angka penting	perkalian/pembagian: ikut yang paling sedikit angka pentingnya
+Catatan untuk Guru Pembimbing
+Saat menyusun pembahasan, semua soal dihitung ulang dan dicocokkan dengan kunci pada file kuis. Hasilnya 47 soal cocok sepenuhnya. Tiga soal sebaiknya diperiksa lagi sebelum dipakai untuk menilai siswa:
+•	Soal 12 (rangkaian LC): dengan C = 40 µF dan L = 25 mH hasilnya sekitar 1.884.000 m, sedangkan pilihan C tertulis 1.884 m. Hasil pas 1.884 m kalau kapasitornya 40 pF. Kunci C tetap dipertahankan karena angkanya yang paling cocok.
+•	Soal 20 (angka penting): aturan 3 angka penting menghasilkan 187 cm², sedangkan pilihan E tertulis 187,2 (4 angka penting). E tetap satu-satunya pilihan yang bernilai mendekati.
+•	Soal 50 (resonansi tabung): dengan panjang kolom udara 30 cm tidak terjadi resonansi (jawaban seharusnya C). Kunci A cocok kalau panjangnya 60 cm. Mohon dicek angka di soal aslinya.
+Beberapa hal kecil lainnya: soal 36 menghasilkan 1,888 m³ (pilihan 1,88 adalah hasil pemotongan, bukan pembulatan), soal 2 bergantung pada arah perbandingan roda gigi yang diasumsikan memperbesar gaya, dan soal 34 punya pilihan lain (menambah pemberat) yang secara fisika juga menambah gaya, tetapi kunci memilih mengubah diameter pengisap.
+Semoga bermanfaat untuk persiapan olimpiade. Semangat belajar!

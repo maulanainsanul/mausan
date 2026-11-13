@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-canvas: #F5F7FC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-soft: #EEF2FA;
+  --border-hairline: #DCE4F4;
+  --text-primary: #13203B;
+  --text-secondary: #4A5A78;
+  --accent-orange: #FF7A1A;
+  --accent-blue: #2F6BFF;
+  --accent-mint: #16A36E;
+  --accent-coral: #E5484D;
+  --font-display: 'Fredoka', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+.dark {
+  --bg-canvas: #0B1221;
+  --bg-surface: #131E36;
+  --bg-surface-soft: #1B2947;
+  --border-hairline: #27395E;
+  --text-primary: #F1F5FD;
+  --text-secondary: #A6B6D4;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Text size scale options (Pengaturan: Kecil / Sedang / Besar) */
+html.text-scale-sm { font-size: 14px; }
+html.text-scale-md { font-size: 16px; }
+html.text-scale-lg { font-size: 18px; }
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  text-wrap: balance;
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Accessible focus ring */
+*:focus-visible {
+  outline: 3px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Subtle horizontal shake for empty answer feedback */
+@keyframes shake-gentle {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake-gentle 0.36s ease-in-out;
+}
+
+/* KaTeX responsiveness */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}

@@ -1,0 +1,299 @@
+# PROMPT MASTER UNTUK GOOGLE AI STUDIO (MODE BUILD)
+# Aplikasi: "Jagoan Fisika" — Belajar Olimpiade Fisika SMP dengan Pemandu Suara
+
+Kamu adalah senior full-stack engineer sekaligus desainer UI/UX untuk aplikasi belajar anak SMP (usia 12–15 tahun) dan guru olimpiade fisika. Bangun aplikasi web **mobile-first** yang bisa **di-install sebagai PWA (dan siap dibungkus menjadi APK)**, berbahasa Indonesia. Kerjakan dengan ketelitian setinggi mungkin. Jangan menyingkat, jangan memakai placeholder "lorem ipsum", jangan menulis "dst." pada data. Jika ada instruksi yang bertabrakan, ikuti urutan prioritas: (1) Aturan Anti-Kesalahan di Bagian 12, (2) data di Bagian 6–8, (3) desain di Bagian 4–5.
+
+---
+
+## 1. TUJUAN PRODUK
+
+Anak membuka aplikasi, memilih bab → sub-bab, lalu belajar dengan siklus yang selalu sama:
+**Dengar pemandu → Tonton video → Catat rumus & jebakan → Kerjakan contoh dengan cara yang sama seperti di video → Latihan soal mirip (3 level) → Tantangan soal olimpiade asli.**
+Tujuannya bukan sekadar menonton, tetapi membuat anak **bisa mengerjakan sendiri dengan langkah yang sama seperti di video**.
+
+Sumber konten:
+- File **HTML kuis olimpiade saya** (akan saya lampirkan/tempel) berisi 50 soal. Gunakan teks soal, pilihan, dan kunci jawabannya persis seperti di file itu. Jangan mengubah kunci.
+- File **Pembahasan Kuis Olimpiade Fisika SMP (docx)** (akan saya tempel isinya jika perlu). Ringkasan 50 soal, kunci, dan peta sub-bab ada di Bagian 7.
+- Jika file HTML belum dilampirkan, buat modul **"Impor Kuis"** (tempel JSON/HTML) dan isi sementara dengan data di Bagian 7 (tanpa teks soal lengkap, hanya judul dan nomor).
+
+## 2. PLATFORM & TEKNOLOGI
+
+- React 18 + TypeScript + Vite + Tailwind CSS. Animasi: Framer Motion (`motion`). Ikon: lucide-react. Rumus: KaTeX (render `$...$`).
+- **PWA**: `manifest.webmanifest` (nama "Jagoan Fisika", `display: standalone`, `orientation: portrait`, ikon 192/512 maskable dibuat sebagai SVG→PNG), service worker (cache-first untuk aset, network-first untuk data), halaman offline ramah. Tambahkan tombol "Pasang ke layar utama" (menangkap event `beforeinstallprompt`; di iOS tampilkan petunjuk Share → Add to Home Screen).
+- Semua data (peta video, naskah pemandu, bank soal) ada di folder `src/data/` sebagai file TypeScript bertipe ketat. Tidak ada backend. Progres tersimpan di `localStorage` (bungkus try/catch; aplikasi tetap jalan jika gagal).
+- Siapkan juga `capacitor.config.ts` dan `README.md` berisi langkah mengubah menjadi APK (Bagian 13).
+- Aksesibilitas: kontras WCAG AA, target sentuh ≥ 48px, fokus keyboard terlihat, `prefers-reduced-motion` dihormati, teks bisa diperbesar (3 ukuran).
+
+## 3. STRUKTUR INFORMASI
+
+Bab → Sub-bab. Halaman:
+1. **Beranda**: sapaan pemandu, "Lanjutkan belajar", peta bab (kartu), streak harian, tombol "Tantangan 5 Menit".
+2. **Peta Belajar** (jalur seperti peta petualangan): 9 bab, 33 sub-bab, tiap sub-bab punya status 🔒/▶/✓ dan bintang 0–3.
+3. **Halaman Sub-bab** (inti), berisi 6 tahap (Bagian 5).
+4. **Kuis Olimpiade 50 Soal** (dari file HTML saya) + mode "Per Bab".
+5. **Bank Soal Mirip** (latihan acak per sub-bab).
+6. **Buku Rumus & Jebakan** (kartu rumus per bab, bisa dicari).
+7. **Profil/Progres** (bintang, lencana, grafik kekuatan per bab, ulangi soal salah).
+8. **Pengaturan**: kecepatan suara, pilih suara, ukuran teks, mode gelap, reset progres.
+9. **Mode Kurator** (tersembunyi; buka dengan menekan logo 5 kali): daftar periksa video (Bagian 8.4).
+
+## 4. DESAIN (WAJIB TIDAK MEMBOSANKAN, TAPI TETAP FOKUS BELAJAR)
+
+Konsep: **"Laboratorium Petualang"** — anak adalah calon ilmuwan yang menaklukkan 9 "pulau" fisika. Bukan template kelas online biasa.
+- **Palet** (token CSS, dua tema): dasar krem-biru muda lembut di mode terang, biru malam di mode gelap; aksen utama **oranye energi** (#FF7A1A) dan **biru listrik** (#2F6BFF), aksen pendukung **hijau mint** (benar) dan **merah koral** (salah). Tiap bab punya warna sendiri (Gerak=oranye, Kalor=merah, Fluida=biru, Gelombang=ungu, Listrik=kuning, Pesawat=hijau, Astronomi=indigo, Optik=tosca, Pengukuran=abu hangat).
+- **Tipografi**: judul `Baloo 2` atau `Fredoka` (ramah, tegas), isi `Nunito` (terbaca), rumus/angka `JetBrains Mono` dengan `tabular-nums`. Skala: 14/16/18/24/32.
+- **Maskot pemandu orisinal** (rancang sendiri, JANGAN meniru karakter berhak cipta): robot kecil bernama **"Volta"** (kepala bulat, antena petir kecil, mata dua layar LED) digambar dengan SVG. Ekspresi: senang, berpikir, kaget, bangga, menyemangati. Mulut dan antena bergerak mengikuti suara (animasi lip-sync sederhana berdasarkan event `boundary`/timer).
+- **Gamifikasi**: XP, bintang per sub-bab (3 bintang = selesai soal level 3 tanpa petunjuk), lencana (mis. "Pemburu Satuan", "Raja Tuas"), streak harian, konfeti kecil saat benar (hormati reduced-motion), suara efek lembut (bisa dimatikan).
+- **Tiap bab punya ilustrasi SVG sederhana** pada kartunya (roda gigi, termometer, tetes air, gelombang, kilat, tuas, planet, lensa, penggaris).
+- **Layout**: bottom navigation 4 tab (Beranda, Peta, Latihan, Profil). Kartu dengan sudut besar bervariasi, bukan semua sama. Hindari tampilan tabel membosankan; gunakan kartu, chip, stepper.
+- **Mikro-interaksi** (satu momen utama, jangan berlebihan): transisi halaman geser, tombol "Cek Jawaban" bergetar halus jika kosong, kartu langkah membuka satu per satu.
+- Responsif: nyaman di ponsel 360px, tablet, dan desktop (video 16:9 di kolom kiri, panel langkah di kanan pada layar ≥ 1024px).
+- Bahasa: Indonesia santai-sopan untuk anak SMP, kalimat pendek, tanpa jargon berlebihan. Rumus selalu disertai satuan.
+
+## 5. HALAMAN SUB-BAB: 6 TAHAP (ALUR PEMBELAJARAN)
+
+Tahap ditampilkan sebagai stepper horizontal. Tahap berikutnya terbuka setelah tahap sebelumnya ditandai selesai (tombol "Lanjut"). Anak boleh kembali.
+
+**Tahap 1 — Dengarkan Pemandu (30–60 detik).** Volta berbicara dengan voice over (Bagian 9): apa yang akan dipelajari, kenapa penting untuk olimpiade, dan **"Tugas Tonton"**: 2–3 hal yang harus dicatat dari video (disediakan di data `tugasTonton`). Teks naskah tampil sebagai subtitle yang tersorot per kalimat.
+
+**Tahap 2 — Tonton Video.** Embed YouTube resmi (Bagian 8). Di bawah video: pilihan **video utama** dan **video cadangan** (chip), tombol "Buka di YouTube", dan indikator kualitas ("Utama / Pendukung / Level SMA / Bahasa Inggris"). Ada **Catatan Cepat** (textarea tersimpan per sub-bab) dan 3 kotak centang "Tugas Tonton". Volta memberi komentar singkat bila anak menekan "Sudah nonton".
+
+**Tahap 3 — Rumus & Jebakan.** Kartu ringkas hasil rangkuman (data `rumus`, `jebakan`, `langkahBaku`). Format wajib: **Konsep inti (maks 3 poin) → Rumus berlabel satuan → Langkah baku (pakai kata kerja) → 2 jebakan umum**. Ada tombol "Dengarkan ringkasan".
+
+**Tahap 4 — Kita Kerjakan Bareng (Contoh Terpandu).** Satu contoh soal yang dikerjakan dengan **cara yang sama seperti langkah baku di video** (data `contohTerpandu`). Tampilkan langkah satu per satu (tombol "Langkah berikutnya"). Pada setiap langkah anak diminta **mengisi sendiri** hasil sebuah langkah kecil (angka/pilihan) sebelum jawaban ditampilkan. Volta menyoroti kesalahan umum.
+
+**Tahap 5 — Latihan Soal Mirip (3 level).** Soal dihasilkan dari **generator parametrik** (Bagian 10), bukan dari AI saat runtime, supaya jawaban pasti benar:
+- Level 1 *Meniru* (angka berbeda, konteks sama dengan contoh) — petunjuk langkah tersedia.
+- Level 2 *Variasi* (konteks berbeda, langkah sama) — petunjuk hanya 1.
+- Level 3 *Tantangan* (ada data pengecoh / dua fase / konversi satuan) — tanpa petunjuk.
+Setiap soal: 5 pilihan (A–E), pengecoh dibuat dari **kesalahan umum** (Bagian 10), umpan balik langsung, tombol "Lihat cara yang sama seperti di video" yang menampilkan langkah baku dengan angka soal itu. Aturan bintang: ≥ 2 benar dari 3 soal Level 3 = 3 bintang.
+
+**Tahap 6 — Tantangan Soal Olimpiade Asli.** Menampilkan soal-soal dari kuis 50 soal yang terpetakan ke sub-bab itu (kolom "Soal kuis" di Bagian 7), dengan pembahasan langkah demi langkah dari dokumen pembahasan. Setelah dijawab, tampilkan "Tips soal serupa".
+
+## 6. PETA BAB DAN SUB-BAB (33 SUB-BAB)
+
+Gunakan ID tetap berikut (jangan ubah). Kolom "Soal" = nomor soal di kuis 50 soal.
+
+| ID | Bab | Sub-bab | Soal |
+|---|---|---|---|
+| A1 | Gerak & Gaya | Grafik gerak (s–t, v–t), GLB & GLBB | 1, 41 |
+| A2 | Gerak & Gaya | Gerak relatif: menyusul & berpapasan | 42 |
+| A3 | Gerak & Gaya | Gaya, gesekan, Hukum Newton, energi kinetik | 10, 16 |
+| B1 | Suhu & Kalor | Skala termometer & termometer buatan | 6, 9 |
+| B2 | Suhu & Kalor | Pemuaian zat padat | 22, 39 |
+| B3 | Suhu & Kalor | Kalor, perubahan wujud, grafik pemanasan | 8, 17 |
+| B4 | Suhu & Kalor | Asas Black | 49 |
+| B5 | Suhu & Kalor | Perpindahan kalor & gerak partikel | 30, 37 |
+| B6 | Suhu & Kalor | Pemuaian gas tekanan tetap (Charles) | 36 |
+| C1 | Fluida | Tekanan zat padat, massa vs berat | 5 |
+| C2 | Fluida | Tekanan zat cair & manometer | 44 |
+| C3 | Fluida | Tekanan udara & barometer Torricelli | 45 |
+| C4 | Fluida | Hukum Pascal & hidrolik | 29, 34 |
+| C5 | Fluida | Hukum Archimedes (apung, melayang, tenggelam) | 4, 11 |
+| D1 | Gelombang & Bunyi | Besaran gelombang (λ, f, T, v) | 15 |
+| D2 | Gelombang & Bunyi | Pipa organa & resonansi kolom udara | 3, 24, 50 |
+| D3 | Gelombang & Bunyi | Pemantulan bunyi: gema & sonar | 13, 14, 33 |
+| E1 | Listrik & Magnet | Hambatan seri–paralel & hambatan kawat | 7, 25 |
+| E2 | Listrik & Magnet | Gaya Coulomb | 27 |
+| E3 | Listrik & Magnet | Medan magnet kawat berarus & elektromagnet | 43 |
+| E4 | Listrik & Magnet | Gaya Lorentz | 32 |
+| E5 | Listrik & Magnet | Transformator | 47 |
+| E6 | Listrik & Magnet | (Tantangan) Rangkaian LC & gelombang radio | 12 |
+| F1 | Pesawat Sederhana | Tuas | 21, 23 |
+| F2 | Pesawat Sederhana | Katrol & gabungan pesawat | 19, 35 |
+| F3 | Pesawat Sederhana | Bidang miring | 48 |
+| F4 | Pesawat Sederhana | Roda bergigi | 2 |
+| G1 | Astronomi & Bumi | Pasang surut | 18 |
+| G2 | Astronomi & Bumi | Rotasi Bumi & selisih waktu | 31 |
+| G3 | Astronomi & Bumi | Benda langit kecil: komet, asteroid, meteor | 28, 38 |
+| G4 | Astronomi & Bumi | Gravitasi, atmosfer Bulan, massa Matahari | 26, 46 |
+| H1 | Alat Optik | Teropong bintang & teropong bumi | 40 |
+| I1 | Pengukuran | Angka penting | 20 |
+
+## 7. KUNCI KUIS 50 SOAL (JANGAN DIUBAH)
+
+Format `no:kunci`: 1:? 2:? … **Ambil kunci dari file HTML saya.** Kunci yang sudah terverifikasi dari dokumen pembahasan untuk soal yang dikerjakan di bawah ini (gunakan untuk memeriksa konsistensi saat impor; jika berbeda dengan file HTML, tampilkan peringatan di Mode Kurator, jangan menimpa diam-diam):
+
+12:C · 13:B · 14:C · 15:D · 16:D · 17:D · 18:C · 19:D · 20:E · 21:B · 22:A · 23:B · 24:A · 25:B · 26:C · 27:D · 28:C · 29:A · 30:C · 31:E · 32:A · 33:D · 34:B · 35:C · 36:A · 37:A · 38:E · 39:B · 40:C · 41:B · 42:C · 43:D · 44:A · 45:A · 46:E · 47:D · 48:A · 49:A · 50:A
+
+**Tiga soal bertanda "perlu dicek ke sumber asli"** (tampilkan lencana kuning "Cek soal asli" dan catatan transparan kepada guru, jangan disembunyikan):
+- **Soal 12** (LC): dengan satuan tertulis (40 µF, 25 mH) hasil hitung ≈ 1.884.000 m; pilihan C (1.884 m) cocok jika kapasitornya 40 pF. Kunci tetap C.
+- **Soal 20** (angka penting): aturan 3 angka penting memberi 187 cm²; kunci E (187,2) dipilih karena satu-satunya pilihan bernilai ≈187.
+- **Soal 50** (resonansi tabung): dengan kolom udara 30 cm tidak terjadi resonansi (resonansi di 20, 60, 100 cm untuk λ = 80 cm); kunci A cocok jika kolomnya 60 cm.
+Untuk ketiganya, aplikasi menampilkan: "Kunci kuis: X. Catatan: ada kemungkinan salah ketik di soal. Tanyakan guru." dan **tidak menghitung soal ini untuk bintang**.
+
+## 8. PETA VIDEO YOUTUBE (BAGIAN PALING KRITIS)
+
+### 8.1 Status verifikasi (JUJUR, tampilkan di Mode Kurator)
+Video-video di bawah dicari dan dipilih dari hasil pencarian YouTube pada 13 November 2026, dicocokkan dengan topik tiap sub-bab. **Judul, kanal, durasi, dan kualitas penjelasan belum dibuka satu per satu.** Karena itu aplikasi WAJIB: (a) mengambil judul dan kanal asli saat runtime lewat IFrame API (`getVideoData()`), (b) mendeteksi video yang mati/tidak boleh disematkan (Bagian 8.3), dan (c) menyediakan Mode Kurator agar saya bisa memeriksa dan menandai video sebelum dipakai murid. **Jangan mengarang judul, kanal, atau menit (timestamp).** Kolom `mulaiDetik` dan `selesaiDetik` dikosongkan; jika saya mengisinya kemudian, pemandu memakainya.
+
+### 8.2 Data registri (`src/data/videos.ts`)
+Tipe:
+```ts
+type Peran = 'utama' | 'cadangan' | 'pendukung';
+type Level = 'SMP' | 'SMA' | 'EN';
+interface VideoRef { id: string; peran: Peran; level: Level; catatan?: string; mulaiDetik?: number; selesaiDetik?: number; }
+const VIDEOS: Record<string, VideoRef[]> // kunci = ID sub-bab
+```
+Isi (id = kode YouTube 11 karakter; URL = `https://www.youtube.com/watch?v=<id>`):
+
+- A1: NqtMG00Vxoo(utama,SMP) · ukMw0kp8TA4(utama,SMP, fokus grafik GLBB) · aXIpU79Evlo(cadangan,SMP)
+- A2: f-49x4gX478(utama,SMA; dua benda berhadapan) · 0V_UtoX3X5w(cadangan,SMA) · phDEe5L55Vw(cadangan,SMA) · 8DdVByiWZmw(pendukung,SMA; berpapasan)
+- A3: ePn9o-t25_M(utama,SMP; Hukum Newton & gesek, Fisika Kelas 8) · g8zSuIjH3FY(cadangan,SMP; Newton 1-2-3) · LRXN3CL6Z-8(pendukung,SMA; balok & gaya gesek) · 7LBOPEFKWbI(pendukung,SMP; energi) · CDmpeEIJvvQ(pendukung,SMP; energi)
+- B1: UmTJ_0BNN9M(utama,SMP) · _hPpptHKfb8(cadangan,SMP) · 0pOcLG7BGII(utama,SMP; termometer X dan Y)
+- B2: JZEbUjHXAH8(utama,SMP) · r8U9KrVfU9w(cadangan,SMP) · 9ByblmJ24M4(pendukung,SMP) · EEc14XzoHug(pendukung,SMP; bimetal)
+- B3: MLbem0WLTrQ(utama,SMP) · _he_1eEuVMk(utama,SMP; grafik perubahan wujud) · tgFDsdV5xyA(cadangan,SMP) · 5708VCUtnRk(pendukung,SMA; es −5°C ke air 100°C)
+- B4: hbRsyhyilvA(utama,SMP) · aYJaXqdQB_M(cadangan,SMP) · v1nOfMffc5k(pendukung,SMP)
+- B5: hdTMtuklR48(utama,SMP) · r-79D7cH_2g(cadangan,SMP)
+- B6: **belum ada kandidat yang cukup meyakinkan.** Tampilkan kartu "Video sedang dicari" + tombol "Cari di YouTube" (tautan pencarian `https://www.youtube.com/results?search_query=hukum+Charles+pemuaian+gas+tekanan+tetap`). Tetap sediakan Tahap 3–6 lengkap.
+- C1: 81ARF7bofXA(utama,SMP) · 6o6mGjRehAk(cadangan,SMP) · 4jVa6rx6XOI(pendukung,SMP; massa vs berat) · UM7vwMUVrSA(pendukung,SMP; berat di Bumi dan Bulan)
+- C2: MCx4x8qGmkc(utama,SMP) · 9QR9H5bMUDU(cadangan,SMP) · gS_Ngu1rKWM(cadangan,SMP) · TpfMfklVU7k(pendukung,SMA; pipa U)
+- C3: LY9oKbPpNSo(utama,SMP; Tekanan 8: gas, barometer, manometer) · 64gbQRo1K_4(cadangan,SMP; Part 10 Tekanan) · InWiqovr8Fg(pendukung,SMP)
+- C4: tew3souNdho(utama,SMP) · wm1ZYvj4tiw(cadangan,SMP) · YC3FbwVU0-o(pendukung,SMP)
+- C5: 7iB38ZAvcbI(utama,SMP) · trGJaXwn-RM(cadangan,SMP) · e_5PJ_u4pD8(pendukung,SMP) · Br8S4cs1Rwk(pendukung,SMP) · ANk_PKsAIjI(pendukung,SMA; balon udara, untuk soal 11)
+- D1: uTxInQRmhRU(utama,SMP) · jYehJEGBf78(cadangan,SMP)
+- D2: wWxOZ8endXE(utama,SMA; pipa organa terbuka/tertutup) · 035utNT7D6I(cadangan,SMA) · We2b9deSapg(pendukung,SMA; pipa tertutup) · cRnRyDrO9K8(utama,SMA; resonansi garpu tala & kolom udara, untuk soal 50) · 3eHSXBS1P4g(pendukung,SMP; soal UNBK garpu tala & tabung) · 2HYoU7RlEK8(pendukung,SMP; panjang kolom udara)
+- D3: jeGJvOH8ivc(utama,SMP) · GIZSsDpTfIs(cadangan,SMP) · l3U502RTOvM(pendukung,SMP)
+- E1: uoyzzJ7DfhA(utama,SMP) · GBQEcXIXePI(cadangan,SMP) · cCH0SAK-_to(pendukung,SMP) · ULtIeprLEJs(utama,SMP; hambatan jenis, panjang, luas penampang) · K1uWAj68vo4(pendukung,SMP)
+- E2: 25vRnzCT9MU(utama,SMP; soal UN SMP gaya tolak) · JZNFwsugY0k(cadangan,SMA)
+- E3: zvOAOzxsqSw(utama,SMP; Kemagnetan 3: medan magnet kawat berarus) · w5h2N9Atk34(pendukung,SMA) · 6ba8Nm-gR6M(pendukung,SMP)
+- E4: gmFr48Hotbc(utama,SMP) · bR-AB03HMAs(cadangan,SMP; kaidah tangan kanan kelas 9) · oatz1lzGIf0(pendukung,SMP; induksi magnet & gaya Lorentz) · iPDMtNhxvxs(pendukung,SMA)
+- E5: RdhEDWK0Zlg(utama,SMP) · AU4zFQj4y0I(cadangan,SMP) · pzzJlPfCxhg(pendukung,SMP)
+- E6: -Uel-bTc57A(utama,EN; turunan frekuensi resonansi LC) · r72f0ZZusT0(cadangan,EN). Beri label "Di atas level SMP — opsional".
+- F1: dO_M8bpQfaA(utama,SMP) · U_DKPIwMmiU(cadangan,SMP) · kBzjLsKPUwQ(pendukung,SMP) · 42mpB0nL-0Q(pendukung,SMP)
+- F2: eT3zrMassBU(utama,SMP) · CxftAOqdQLI(cadangan,SMP) · ptXgsSMk0Rw(pendukung,SMP) · 8v0A8kVut-M(pendukung,SMP)
+- F3: O3iS5UkVbI8(utama,SMP) · 6whArrNK6mg(cadangan,SMP) · t3SgGGOoKtU(pendukung,SMP)
+- F4: qp-wF_PQS4Y(utama,SMP) · SVNy6M55kzg(cadangan,SMP)
+- G1: QjzEQMkoR4o(utama,SMP) · 0t6uJClylx8(cadangan,SMP)
+- G2: cbJlMa5FeYo(utama,SMP) · cnik0ilORtk(pendukung,SMA; soal KSN Geografi)
+- G3: H7LodTz9uQU(utama,SMP) · fppYMuMbHcM(cadangan,SMP) · oydGIaJfcv0(pendukung,SMP) · 91GuCPIJzfc(pendukung,SMP)
+- G4: 4jVa6rx6XOI(pendukung,SMP; massa vs berat) · pWRsFLQ6KQ4(pendukung,SMP; YouTube Shorts, alasan Bulan tanpa atmosfer; tampilkan sebagai tautan jika tidak bisa disematkan) · tRwzgFJDWI8(pendukung,SMA; periode planet & massa pusat, untuk soal 46). Beri label "Soal 46 di atas level SMP".
+- H1: IOEcOm8E8a8(utama,SMP) · DJCVIh5ymB4(cadangan,SMP) · WwGR8qmK4aM(pendukung,SMP) · EMN676WehRo(pendukung,SMP)
+- I1: YVvw-mSlg1c(utama,SMP) · UFVkXAtPcT8(cadangan,SMP) · CgUdOy7-INA(pendukung,SMP) · Ioim5NtFywU(pendukung,SMP)
+
+**Rak bonus "Bedah Soal OSN" (global, bukan per sub-bab):** i1ESzWKk-8o (pembahasan soal OSN IPA SMP Kab/Kota 2025 bagian fisika) · INg9QdAlNHk (OSN Kota/Kab IPA SMP 2024) · TIv0v0IzWsU (Persiapan OSN IPA SMP) · playlist `PL0TfKsBp9U9jAxMg7euy_V8L5dOjky7dj` (Olimpiade Fisika SMP, pembahasan lengkap; sematkan dengan tautan, bukan iframe).
+
+### 8.3 Cara menyematkan (teknis)
+- Gunakan YouTube IFrame Player API, domain `https://www.youtube-nocookie.com`, parameter `rel=0`, `modestbranding=1`, `playsinline=1`, `origin` = host aplikasi. Muat `https://www.youtube.com/iframe_api` dinamis.
+- Tangani `onError` (kode 2, 5, 100, 101, 150): tampilkan kartu "Video ini tidak bisa diputar di sini", tombol **"Tonton di YouTube"** (tab baru) dan **otomatis tawarkan video cadangan** sub-bab itu; catat status `mati` di `localStorage` untuk Mode Kurator.
+- Pratinjau kartu memakai `https://i.ytimg.com/vi/<id>/hqdefault.jpg` dengan fallback ikon bila gagal.
+- Judul/kanal ditampilkan dari `player.getVideoData()` setelah `onReady`; sebelum itu tampil "Memuat judul…". Jangan menyimpan judul fiktif di data.
+- Jika offline: tampilkan pesan "Butuh internet untuk menonton video; materi tulis & latihan tetap bisa dipakai".
+- Lazy-load: iframe dibuat setelah anak menekan tombol putar pada pratinjau (hemat kuota).
+
+### 8.4 Mode Kurator
+Daftar semua video per sub-bab dengan: pratinjau, judul & kanal (dimuat saat dibuka), status (belum diperiksa / layak / mati / kurang cocok), kolom isi `mulaiDetik`, `selesaiDetik`, catatan, dan tombol "Jadikan utama". Simpan ke `localStorage` dan sediakan **Ekspor JSON** agar saya bisa menempelkannya kembali ke `videos.ts`. Video bertanda "mati" atau "kurang cocok" otomatis disembunyikan dari murid.
+
+## 9. VOICE OVER PEMANDU
+
+- Default: **Web Speech API (`speechSynthesis`)**, `lang='id-ID'`. Pilih voice dengan `lang` diawali `id`; jika tidak ada, tampilkan peringatan ramah dan jatuh ke mode subtitle saja. Kecepatan `0.95` (opsi 0.8/0.95/1.1), pitch `1.05`. Muat voices secara asinkron (`onvoiceschanged`). Pecah naskah per kalimat agar bisa jeda/lanjut dan agar subtitle tersorot sinkron.
+- Kontrol: putar, jeda, ulang, lewati, kecepatan, bisukan. Suara berhenti otomatis ketika video diputar (jangan menimpa suara video). Autoplay suara hanya setelah interaksi pertama anak.
+- Opsional (jika tersedia di lingkungan AI Studio dan kunci API aman): kualitas suara lebih natural lewat model TTS Gemini; kalau tidak jelas ketersediaannya, jangan dipakai. Jangan menaruh kunci API di kode klien.
+- **Naskah pemandu** disusun per sub-bab dalam `src/data/narasi.ts` dengan struktur: `sapaan` (1 kalimat, sebut nama sub-bab), `tujuan` (1–2 kalimat), `tugasTonton` (3 butir), `penyemangat` (1 kalimat), `saatBenar`/`saatSalah` (masing-masing 4 variasi). Total narasi pembuka ≤ 70 kata agar tidak membosankan. Contoh gaya (untuk A2): "Halo, calon juara! Kali ini kita belajar gerak relatif: siapa menyusul siapa. Sambil menonton, catat tiga hal: kapan kecepatan dijumlah, kapan dikurangi, dan rumus waktu bertemu. Siap? Putar videonya!"
+- Pemandu juga memberi **"Rencana belajar harian"** di Beranda: 3 langkah (tonton 1 video, kerjakan 3 soal, ulang 1 soal salah) dan menyarankan sub-bab berikutnya berdasarkan progres dan kesalahan.
+- Pemandu **tidak boleh** menyebut menit video atau isi video yang tidak ada di data. Ia hanya memakai `tugasTonton` dan konsep yang tertulis di Bagian 10.
+
+## 10. KONTEN PER SUB-BAB: RUMUS, LANGKAH BAKU, & GENERATOR SOAL MIRIP
+
+Untuk **setiap** sub-bab, tulis di `src/data/subbab.ts`: `konsepInti`, `rumus` (KaTeX), `langkahBaku`, `jebakan`, `tugasTonton`, `contohTerpandu` (diambil dari soal kuis yang cocok), dan `generator()` yang menghasilkan soal Level 1–3. **Aturan generator (wajib):**
+1. Parameter dipilih dari himpunan yang menghasilkan **jawaban rapi** (bilangan bulat atau maksimal 2 desimal).
+2. Jawaban dihitung oleh fungsi TypeScript, **bukan** ditulis tangan. Pengecoh dibuat dari kesalahan umum (kolom "Pengecoh").
+3. Kelima pilihan harus **unik** dan berbeda setelah pembulatan; urutan diacak dengan seed; jika kurang dari 5 unik, ulangi pengambilan parameter.
+4. Tiap soal membawa `langkah[]` bernomor dengan angka soal itu (untuk tombol "Lihat cara yang sama seperti di video").
+5. Lakukan **uji otomatis** (`npm run test:soal`): jalankan tiap generator 500× dan pastikan jawaban benar tepat satu, pilihan unik, tidak ada NaN/Infinity.
+
+Daftar generator (nilai pada kolom "Contoh" diambil dari soal kuis agar sama dengan kunci):
+
+**A1 Grafik gerak.** Rumus: $v=\Delta s/\Delta t$; grafik s–t miring lurus = GLB, datar = diam, melengkung makin curam = GLBB dipercepat; v–t datar = GLB, miring = GLBB; luas v–t = jarak. Langkah: (1) tentukan jenis grafik, (2) ambil dua titik, (3) hitung. Generator: pilih $s_1,t_1,s_2,t_2$ bulat agar $v$ bulat; soal klasifikasi grafik (digambar SVG). Pengecoh: membalik s dan t; memakai satu titik. Soal 41: $a=\dfrac{g\sin\theta}{1+k}$ (bola pejal $k=2/5$), massa tidak berpengaruh.
+
+**A2 Gerak relatif.** Searah: $t=\dfrac{d}{v_1-v_2}$; berlawanan: $t=\dfrac{d}{v_1+v_2}$. Contoh: Joni 3,60 m/s, Dava 3,40 m/s, jarak 4 m → 20 s. Generator: pilih $v_1>v_2$ dan $d$ kelipatan $(v_1-v_2)$. Pengecoh: memakai jumlah kecepatan; $d/v_1$.
+
+**A3 Gaya & gesekan.** $\Sigma F=ma$, $v^2=2as$, $v=at$, $E_k=\tfrac12mv^2$. Langkah dua fase: (1) satuan ke SI, (2) fase didorong: $a=\Sigma F/m$, $v=at$, (3) fase dilepas: $a'=v^2/2s$, gesek $=ma'$, (4) $F=\text{resultan}+\text{gesek}$. Contoh: m=5 kg, resultan 20 N, 2 s, berhenti 2,5 m → F=84 N. Pengecoh: lupa konversi gram; mengira gesek = resultan.
+
+**B1 Termometer.** Perbandingan skala: $\dfrac{X-X_0}{X_{100}-X_0}=\dfrac{C}{100}$; $K=C+273$; $F=\tfrac95C+32$; $R=\tfrac45C$. Generator termometer buatan dengan titik beku/didih bulat. Pengecoh: lupa mengurangi titik beku.
+
+**B2 Pemuaian zat padat.** $\Delta L=L_0\alpha\Delta T$. Selisih K = selisih °C. Soal perbandingan ("panjang dua kali → ΔL dua kali"). Contoh: kawat besi (α=12×10⁻⁶) vs kuningan (19×10⁻⁶), 200 m, ΔT=10 → besi 0,024 m, kuningan 0,038 m. Pengecoh: mengira massa jenis menentukan.
+
+**B3 Kalor & grafik.** $Q=mc\Delta T$, $Q=mL$; bagian miring = ubah suhu, bagian datar = ubah wujud; kalor jenis air 1 kal/g°C, es 0,5 kal/g°C, kalor lebur es 80 kal/g. Contoh: 60 g air 0→80°C = 4.800 kal. Generator: pilih bagian grafik yang ditanya. Pengecoh: menjumlahkan semua bagian.
+
+**B4 Asas Black.** $Q_{lepas}=Q_{terima}$, kerjakan es bertahap: naikkan suhu → lebur. Contoh soal 49: X air 30°C + Y es −10°C, 50% melebur → $30X=5Y+40Y$ → X:Y=3:2. Generator: ubah suhu air, persentase lebur (25/50/75%), pastikan suhu akhir 0°C konsisten dengan kalor yang tersedia. Pengecoh: lupa kalor menaikkan suhu es.
+
+**B5 Perpindahan kalor.** Konduksi (zat padat, partikel tidak berpindah), konveksi (zat ikut berpindah: zat cair/gas), radiasi (tanpa zat perantara; benda gelap menyerap & memancar lebih baik, benda putih mengilap memantulkan). Generator klasifikasi dari 20 situasi sehari-hari (angin laut, sendok panas, rumah dicat putih, asap naik).
+
+**B6 Gas tekanan tetap.** $\dfrac{V_1}{T_1}=\dfrac{V_2}{T_2}$ dengan T dalam kelvin. Contoh: 1,5 m³, 13°C→87°C → ≈1,89 m³ (pilihan terdekat 1,88 m³). Generator: pilih suhu agar rasio rapi (mis. 27°C→127°C: 300 K→400 K). Pengecoh: memakai °C.
+
+**C1 Tekanan padat.** $P=F/A$, $F=W=mg$, $A$ luas bidang tekan. Massa tetap, berat berubah menurut g. Pengecoh: lupa konversi cm²→m².
+
+**C2 Zat cair & manometer.** $P=\rho g h$; $1\ \text{atm}=76\ \text{cmHg}=760\ \text{mmHg}\approx10^5\ \text{Pa}$. **Langkah pertama: samakan satuan.** Contoh: 0,8 atm = 60,8 cmHg. Generator: manometer terbuka/pipa U dengan selisih tinggi.
+
+**C3 Barometer.** Isi tabung penuh raksa → tutup ujung dengan jari → balik ke bejana raksa → lepaskan; kolom ≈76 cm di permukaan laut, lebih rendah di gunung. Generator: soal urutan langkah (susun ulang) dan soal tinggi kolom di ketinggian (turun ±1 cmHg per ±100 m, nyatakan sebagai pendekatan).
+
+**C4 Pascal.** $\dfrac{F_1}{A_1}=\dfrac{F_2}{A_2}$, $A\propto d^2$. Contoh: $F_2=9F_1$ → $d_1=d_2/3$ = 2 cm dari 6 cm. Pengecoh: membagi diameter langsung dengan 9. Soal 34: memperkecil diameter pengisap kecil menaikkan keuntungan.
+
+**C5 Archimedes.** $F_A=\rho_{cair}\,g\,V_{tercelup}$; $\rho_{benda}<\rho_{cair}$ terapung, $=$ melayang, $>$ tenggelam; syarat apung $F_A=W$. Balon udara: gaya angkat bersih $=(\rho_{udara\ luar}-\rho_{udara\ dalam})gV-W_{beban}$. Generator: bagian tercelup $=\rho_{benda}/\rho_{cair}$.
+
+**D1 Gelombang.** $v=\lambda f=\lambda/T$; jumlah gelombang pada tali $=L/\lambda$. Contoh: L=12 m, T=0,2 s, v=15 → λ=3 m → 4 gelombang. Sisipkan **data pengecoh** (simpangan) di Level 3.
+
+**D2 Pipa organa.** $\lambda=v/f$; pipa terbuka: $L=\tfrac12\lambda,\ \lambda,\ \tfrac32\lambda,\dots$; pipa tertutup/kolom udara di atas air: $L=\tfrac14\lambda,\ \tfrac34\lambda,\ \tfrac54\lambda,\dots$; panjang setengah → frekuensi dua kali (naik satu oktaf). Contoh: 425 Hz, 340 m/s → λ=80 cm → resonansi di 20, 60, 100 cm. Generator: cek apakah panjang yang diberikan sesuai pola ganjil ¼λ. Untuk soal 50 tampilkan catatan Bagian 7.
+
+**D3 Gema & sonar.** $s=\dfrac{v\,t}{2}$ (selalu dibagi 2). Contoh: 1.500 m/s, 2 s → 1.500 m; 1.400 m/s, 5 s → 3.500 m; $v=f\lambda=500\times0{,}68=340$, t=4 s → 680 m. Pengecoh: lupa membagi 2.
+
+**E1 Hambatan.** Seri $R=\sum R$; paralel $\tfrac1R=\sum\tfrac1{R_i}$; $I=V/R$; $R=\rho L/A$. Empat hambatan 40 Ω, 25 V: paralel 10 Ω → 2,5 A; seri 160 Ω → ≈0,16 A. Generator: n hambatan sama, variasi seri/paralel/campuran; kawat dipotong/ditarik (kawat panjang L dipotong dua lalu paralel → R/4). Pengecoh: tukar seri dan paralel.
+
+**E2 Coulomb.** $F\propto q_1q_2/r^2$; jawab dengan "menjadi berapa kali". Contoh: +3q dan +2q, 10 cm, 2 N → +1q dan +12q, 5 cm → 2×4×2 N = 16 N. Pengecoh: jarak setengah dianggap gaya 2 kali.
+
+**E3 Medan magnet kawat.** Kawat lurus berarus menimbulkan medan melingkar (aturan tangan kanan); diperkuat dengan memperbanyak lilitan, memperbesar arus, memberi inti besi. Soal konsep + soal arah medan.
+
+**E4 Lorentz.** $F=BIL\sin\theta$ (θ=90° di tingkat SMP: $F=BIL$); arah dengan kaidah tangan kanan. Contoh: kawat dipotong setengah → F setengah (10×10⁻⁴ → 5×10⁻⁴ N). Pengecoh: salah pangkat.
+
+**E5 Trafo.** $\dfrac{V_s}{V_p}=\dfrac{N_s}{N_p}=\dfrac{I_p}{I_s}$ (ideal). Contoh: 75 V → 125 V: Ns:Np=5:3 (step-up). Pengecoh: membalik urutan perbandingan.
+
+**E6 LC (opsional, tantangan).** $f=\dfrac{1}{2\pi\sqrt{LC}}$, $\lambda=\dfrac{c}{f}=2\pi c\sqrt{LC}$. Fokus pada konversi awalan satuan (m=10⁻³, µ=10⁻⁶, n=10⁻⁹, p=10⁻¹²). Wajib tampilkan catatan soal 12 (Bagian 7).
+
+**F1 Tuas.** $W\cdot l_b=F\cdot l_k$; KM $=l_k/l_b$. Contoh: 250×Lb=60×5 → 1,2 m; W×100=200×200 → 400 N. Satuan boleh sama di kedua sisi tanpa konversi. Pengecoh: menukar lengan.
+
+**F2 Katrol.** KM = jumlah tali penopang beban; katrol tetap KM=1 (hanya ubah arah); usaha tetap sama ($W=Fs$). Gabungan: kerjakan satu alat demi satu. Contoh: 900 N, tuas 0,3 m : 1,2 m → 225 N; usaha 225×1,5=337,5 J.
+
+**F3 Bidang miring.** $F=W\dfrac{h}{s}$ (licin); $F\cdot s=W\cdot h$. Contoh: 5.000 N, s=10 m, h=8 m → 4.000 N. Pengecoh: memakai $s/h$.
+
+**F4 Roda gigi.** Gaya/putaran berbanding terbalik dengan jumlah gigi: $\dfrac{n_1}{n_2}=\dfrac{z_2}{z_1}$. Isi soal sesuai soal kuis nomor 2 dari file HTML saya (gunakan teks asli, jangan menebak). Generator: dua/tiga roda gigi, arah putar berlawanan pada roda bersinggungan.
+
+**G1 Pasang surut.** Segaris (bulan baru atau purnama) → pasang purnama (tarikan saling menambah); bulan kuartal → pasang perbani (sudut siku-siku, saling mengurangi). Generator: kartu konsep + ilustrasi SVG posisi Matahari–Bumi–Bulan.
+
+**G2 Selisih waktu.** 360°/24 jam → 15°/jam → 1° = 4 menit; timur lebih awal. Contoh: 105°BT → 123°BT: 18°×4=72 menit; 09.12 → 10.24. Generator: bujur BT/BB dan perhitungan lintas tengah malam (tampilkan hari berganti).
+
+**G3 Benda langit kecil.** Meteoroid (di antariksa), meteor (cahaya di atmosfer), meteorit (sampai tanah); asteroid = batuan/logam, komet = es-debu-gas berekor. Generator: pasang-pasangan (matching) dan klasifikasi ciri.
+
+**G4 Gravitasi.** Berat $W=mg$ (massa tetap, berat berubah); Bulan tanpa atmosfer karena gravitasinya (±1/6 Bumi) terlalu lemah menahan molekul gas; $M=\dfrac{4\pi^2r^3}{GT^2}$ (hanya Level 3 "olimpiade lanjutan", beri label di atas level SMP). Contoh: r=1,5×10¹¹ m, T≈3,15×10⁷ s → ≈2×10³⁰ kg.
+
+**H1 Teropong.** Bintang: $d=f_{ob}+f_{ok}$, $M=f_{ob}/f_{ok}$. Bumi: $d=f_{ob}+4f_p+f_{ok}$. Contoh: M=4, fob 60/40 cm, fp 10 cm → 75 cm dan 90 cm → 5:6. Pengecoh: lupa 4×f pembalik.
+
+**I1 Angka penting.** Kali/bagi: hasil memakai jumlah AP paling sedikit; tambah/kurang: jumlah desimal paling sedikit. Soal 20: tampilkan catatan Bagian 7. Di generator, hasilkan soal yang **tidak ambigu** (kunci mengikuti aturan AP dengan ketat).
+
+## 11. KUALITAS & PENGUJIAN
+
+- Tulis unit test untuk setiap generator (Bagian 10 butir 5) dan untuk fungsi konversi suhu/satuan.
+- Pastikan tidak ada tombol mati, tidak ada teks terpotong di 360px, tidak ada scroll horizontal.
+- Seluruh interaksi bekerja tanpa suara (subtitle) dan tanpa video (materi tulis).
+- Performa: first load < 3 detik pada 4G; gambar SVG inline; iframe lazy.
+
+## 12. ATURAN ANTI-KESALAHAN (PRIORITAS TERTINGGI)
+
+1. **Jangan mengarang** judul video, nama kanal, durasi, atau timestamp. Jika tidak ada di data, tampilkan "belum diperiksa".
+2. **Jangan mengubah kunci jawaban** dari file saya. Jika perhitungan berbeda dengan kunci, tampilkan peringatan untuk guru (seperti soal 12, 20, 50).
+3. Semua soal mirip dihasilkan dan diperiksa oleh kode; AI tidak boleh membuat soal saat runtime.
+4. Jika video tidak bisa dimuat, aplikasi tetap bisa dipakai (cadangan → tautan YouTube → materi tulis).
+5. Jangan memakai karakter, logo, atau ilustrasi berhak cipta pihak lain. Volta adalah maskot orisinal.
+6. Jangan mengumpulkan data pribadi; tidak ada akun, tidak ada pelacak pihak ketiga.
+7. Satuan SI di semua soal, kecuali soal sengaja menguji konversi.
+
+## 13. PANDUAN APK (TULIS DI README.md)
+
+AI Studio menghasilkan aplikasi web; APK dibuat dari PWA tersebut. Tulis langkah yang runnable untuk dua jalur:
+- **Jalur 1 (paling mudah): PWABuilder** — deploy ke hosting HTTPS (Firebase Hosting/Netlify/Vercel), masukkan URL ke PWABuilder → unduh paket Android → tanda tangani.
+- **Jalur 2: Capacitor** — `npm i @capacitor/core @capacitor/cli @capacitor/android`, `npx cap init`, `npm run build`, `npx cap add android`, `npx cap sync`, buka di Android Studio → Build → Generate Signed Bundle/APK.
+Catat: layanan YouTube embed membutuhkan internet; pastikan izin `INTERNET` dan setelan WebView mengizinkan `playsinline`.
+
+## 14. HASIL YANG SAYA HARAPKAN
+
+Berikan: (1) seluruh kode siap jalan, (2) struktur folder, (3) `src/data/*.ts` terisi lengkap untuk 33 sub-bab (tidak boleh ada sub-bab kosong), (4) 5 soal contoh yang sudah dihitung manual untuk membuktikan generator benar, (5) README (instalasi, build, deploy, APK), (6) daftar hal yang masih perlu saya periksa (video, soal bertanda). Mulai dengan menampilkan rencana singkat file yang akan dibuat, lalu kerjakan sampai selesai tanpa berhenti di tengah.

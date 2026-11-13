@@ -1,0 +1,6 @@
+{
+  "name": "Jagoan Fisika",
+  "description": "Aplikasi belajar Olimpiade Fisika SMP dengan pemandu suara Volta, video terstruktur, rumus & jebakan, latihan soal parametrik 3 level, dan kuis olimpiade 50 soal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
