@@ -1,20 +1,34 @@
 import React from 'react';
-import { ArrowRight, CheckCircle2, Clock } from 'lucide-react';
+import type { User } from 'firebase/auth';
+import { ArrowRight, CheckCircle2, Clock, Cloud, LogOut } from 'lucide-react';
 import type { UseSpeechGuideReturn } from '../hooks/useSpeechGuide';
+import { GoogleSignInButton } from './GoogleSignInButton';
 import { VoltaMascot } from './VoltaMascot';
 
 interface ReadyCheckScreenProps {
   status: 'asking' | 'not_ready';
   speech: UseSpeechGuideReturn;
+  authUser: User | null;
+  needsDriveReauth: boolean;
+  isLoggingIn: boolean;
+  authError: string;
   onSelectReady: () => void;
   onSelectNotReady: () => void;
+  onGoogleSignIn: () => void;
+  onGoogleLogout: () => void;
 }
 
 export const ReadyCheckScreen: React.FC<ReadyCheckScreenProps> = ({
   status,
   speech,
+  authUser,
+  needsDriveReauth,
+  isLoggingIn,
+  authError,
   onSelectReady,
   onSelectNotReady,
+  onGoogleSignIn,
+  onGoogleLogout,
 }) => {
   const isNotReady = status === 'not_ready';
 
@@ -23,7 +37,82 @@ export const ReadyCheckScreen: React.FC<ReadyCheckScreenProps> = ({
       aria-label="Pertanyaan kesiapan belajar"
       className="min-h-[calc(100vh-8rem)] flex items-center justify-center py-6"
     >
-      <div className="w-full max-w-3xl rounded-[32px] border border-[var(--border-hairline)] bg-[var(--bg-surface)] p-6 sm:p-10 shadow-sm">
+      <div className="w-full max-w-3xl rounded-[32px] border border-[var(--border-hairline)] bg-[var(--bg-surface)] p-6 sm:p-10 shadow-sm space-y-6">
+        {/* Account bar at entry so students can sign into their own Google account */}
+        <div className="rounded-2xl border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] px-4 py-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          {authUser ? (
+            <>
+              <div className="flex items-center gap-3 min-w-0">
+                {authUser.photoURL ? (
+                  <img
+                    src={authUser.photoURL}
+                    alt={authUser.displayName ?? 'Akun Google'}
+                    className="w-9 h-9 rounded-full shrink-0"
+                    referrerPolicy="no-referrer"
+                  />
+                ) : (
+                  <div className="w-9 h-9 rounded-full bg-[#2F6BFF] text-white font-bold text-sm flex items-center justify-center shrink-0">
+                    {(authUser.displayName ?? authUser.email ?? 'S')[0].toUpperCase()}
+                  </div>
+                )}
+                <div className="min-w-0">
+                  <p className="text-xs font-bold text-[var(--text-primary)] truncate">
+                    {authUser.displayName ?? 'Siswa'} · {authUser.email}
+                  </p>
+                  <p className="text-[11px] text-[#16A36E] font-semibold inline-flex items-center gap-1">
+                    <Cloud className="w-3.5 h-3.5" />
+                    {needsDriveReauth
+                      ? 'Perlu hubungkan ulang Google Drive'
+                      : 'Progres tersimpan di akun Google sendiri'}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2 shrink-0">
+                {needsDriveReauth && (
+                  <GoogleSignInButton
+                    compact
+                    disabled={isLoggingIn}
+                    onClick={onGoogleSignIn}
+                    label={isLoggingIn ? 'Menghubungkan…' : 'Hubungkan Drive'}
+                  />
+                )}
+                <button
+                  type="button"
+                  onClick={onGoogleLogout}
+                  className="min-h-[40px] px-3 py-1.5 rounded-xl border border-[var(--border-hairline)] bg-[var(--bg-surface)] text-xs font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)] inline-flex items-center gap-1.5 cursor-pointer"
+                >
+                  <LogOut className="w-3.5 h-3.5" />
+                  Ganti / Keluar
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="min-w-0">
+                <p className="text-xs font-bold text-[var(--text-primary)]">
+                  Masuk Akun Google (Simpan Progres ke Google Drive Pribadi)
+                </p>
+                <p className="text-[11px] text-[var(--text-secondary)] mt-0.5">
+                  Setiap siswa menyimpan bintang, XP, dan jawaban kuis di akun Google masing-masing dengan auto-save otomatis.
+                </p>
+              </div>
+              <div className="shrink-0">
+                <GoogleSignInButton
+                  compact
+                  disabled={isLoggingIn}
+                  onClick={onGoogleSignIn}
+                  label={isLoggingIn ? 'Masuk…' : 'Sign in with Google'}
+                />
+              </div>
+            </>
+          )}
+        </div>
+
+        {authError && (
+          <p className="text-xs font-semibold text-[#E5484D]">{authError}</p>
+        )}
+
         <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
           <div className="rounded-3xl bg-[var(--bg-surface-soft)] p-4 shrink-0">
             <VoltaMascot

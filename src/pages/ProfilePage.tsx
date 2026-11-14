@@ -1,10 +1,25 @@
 import React, { useMemo, useState } from 'react';
-import { Award, CheckCircle2, Flame, RotateCcw, Settings, Star, Trash2 } from 'lucide-react';
+import type { User } from 'firebase/auth';
+import {
+  Award,
+  CheckCircle2,
+  Cloud,
+  DownloadCloud,
+  Flame,
+  LogOut,
+  RotateCcw,
+  Settings,
+  Star,
+  Trash2,
+  UploadCloud,
+} from 'lucide-react';
 import { BABS } from '../data/babs';
 import { SUBBAB_MAP } from '../data/subbab';
 import type { UseSpeechGuideReturn } from '../hooks/useSpeechGuide';
 import type { TextScale, UserProgress, UserSettings } from '../types/physics';
+import { DRIVE_PROGRESS_FILENAME } from '../utils/driveSync';
 import { computeEarnedBadges, getSubBabProgress } from '../utils/storage';
+import { GoogleSignInButton } from '../components/GoogleSignInButton';
 import { MathText } from '../components/MathText';
 import { PWAInstallButton } from '../components/PWAInstallButton';
 import { VoltaMascot } from '../components/VoltaMascot';
@@ -13,6 +28,17 @@ interface ProfilePageProps {
   progress: UserProgress;
   settings: UserSettings;
   speech: UseSpeechGuideReturn;
+  authUser: User | null;
+  needsDriveReauth: boolean;
+  isLoggingIn: boolean;
+  driveSyncAuthorized: boolean;
+  driveStatus: 'idle' | 'syncing' | 'saved' | 'error' | 'offline';
+  driveLastSavedAt: string | null;
+  driveError: string;
+  onGoogleSignIn: () => void;
+  onGoogleLogout: () => void;
+  onManualSaveDrive: () => void;
+  onManualLoadDrive: () => void;
   onUpdateSettings: (patch: Partial<UserSettings>) => void;
   onClearWrongAttempt: (id: string) => void;
   onResetProgress: () => void;
@@ -37,6 +63,17 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
   progress,
   settings,
   speech,
+  authUser,
+  needsDriveReauth,
+  isLoggingIn,
+  driveSyncAuthorized,
+  driveStatus,
+  driveLastSavedAt,
+  driveError,
+  onGoogleSignIn,
+  onGoogleLogout,
+  onManualSaveDrive,
+  onManualLoadDrive,
   onUpdateSettings,
   onClearWrongAttempt,
   onResetProgress,
@@ -64,6 +101,107 @@ export const ProfilePage: React.FC<ProfilePageProps> = ({
 
   return (
     <div className="space-y-7">
+      {/* Akun Google & Sinkronisasi Google Drive */}
+      <section className="rounded-3xl border border-[var(--border-hairline)] bg-[var(--bg-surface)] p-5 sm:p-6 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5 min-w-0">
+            {authUser?.photoURL ? (
+              <img
+                src={authUser.photoURL}
+                alt={authUser.displayName ?? 'Akun Google'}
+                className="w-12 h-12 rounded-full shrink-0"
+                referrerPolicy="no-referrer"
+              />
+            ) : (
+              <div className="w-12 h-12 rounded-2xl bg-[#2F6BFF]/12 text-[#2F6BFF] flex items-center justify-center shrink-0">
+                <Cloud className="w-6 h-6" />
+              </div>
+            )}
+            <div className="min-w-0">
+              <h2 className="font-display text-lg font-bold text-[var(--text-primary)] truncate">
+                {authUser ? `Akun Google: ${authUser.displayName ?? 'Siswa'}` : 'Masuk Akun Google & Auto-Save Drive'}
+              </h2>
+              <p className="text-xs sm:text-sm text-[var(--text-secondary)] truncate">
+                {authUser
+                  ? `${authUser.email} · File: ${DRIVE_PROGRESS_FILENAME}`
+                  : 'Masuk dengan Google agar progres tiap siswa tersimpan otomatis di Google Drive pribadi masing-masing.'}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
+            {!authUser ? (
+              <GoogleSignInButton
+                disabled={isLoggingIn}
+                onClick={onGoogleSignIn}
+                label={isLoggingIn ? 'Menghubungkan…' : 'Sign in with Google'}
+              />
+            ) : needsDriveReauth ? (
+              <GoogleSignInButton
+                disabled={isLoggingIn}
+                onClick={onGoogleSignIn}
+                label={isLoggingIn ? 'Menghubungkan…' : 'Hubungkan Ulang Drive'}
+              />
+            ) : null}
+
+            {authUser && (
+              <button
+                type="button"
+                onClick={onGoogleLogout}
+                className="min-h-[44px] px-4 py-2 rounded-2xl border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] text-xs sm:text-sm font-bold text-[var(--text-primary)] inline-flex items-center gap-1.5 cursor-pointer"
+              >
+                <LogOut className="w-4 h-4" />
+                Keluar
+              </button>
+            )}
+          </div>
+        </div>
+
+        {authUser && !needsDriveReauth && (
+          <div className="rounded-2xl bg-[var(--bg-surface-soft)] p-4 flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <div className="space-y-1 text-xs sm:text-sm">
+              <p className="font-bold text-[var(--text-primary)]">
+                Status Auto-Save Saat Keluar/Tutup Web:{' '}
+                <span className={driveSyncAuthorized ? 'text-[#16A36E]' : 'text-[#D97706]'}>
+                  {driveStatus === 'syncing'
+                    ? 'Mengunggah ke Google Drive…'
+                    : driveSyncAuthorized
+                      ? 'Aktif (Auto-upload latar belakang saat web ditutup/berpindah tab)'
+                      : 'Menunggu konfirmasi penyimpanan Drive'}
+                </span>
+              </p>
+              {driveLastSavedAt && (
+                <p className="text-xs text-[var(--text-secondary)]">
+                  Terakhir tersimpan di Drive: {new Date(driveLastSavedAt).toLocaleString('id-ID')}
+                </p>
+              )}
+              {driveError && <p className="text-xs font-semibold text-[#E5484D]">{driveError}</p>}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2 shrink-0">
+              <button
+                type="button"
+                disabled={driveStatus === 'syncing'}
+                onClick={onManualSaveDrive}
+                className="min-h-[44px] px-4 py-2 rounded-2xl bg-[#2F6BFF] text-white text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-60"
+              >
+                <UploadCloud className="w-4 h-4" />
+                Simpan ke Drive
+              </button>
+              <button
+                type="button"
+                disabled={driveStatus === 'syncing'}
+                onClick={onManualLoadDrive}
+                className="min-h-[44px] px-4 py-2 rounded-2xl border border-[var(--border-hairline)] bg-[var(--bg-surface)] text-[var(--text-primary)] text-xs sm:text-sm font-bold inline-flex items-center gap-1.5 cursor-pointer disabled:opacity-60"
+              >
+                <DownloadCloud className="w-4 h-4 text-[#16A36E]" />
+                Muat dari Drive
+              </button>
+            </div>
+          </div>
+        )}
+      </section>
+
       {/* Header Summary */}
       <section className="rounded-3xl border border-[var(--border-hairline)] bg-[var(--bg-surface)] p-5 sm:p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">

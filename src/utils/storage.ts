@@ -77,10 +77,14 @@ function safeWrite(key: string, value: unknown): void {
   }
 }
 
-export function loadProgress(): UserProgress {
+function progressKeyForUid(uid?: string | null): string {
+  return uid ? `${KEY_PROGRESS}_${uid}` : KEY_PROGRESS;
+}
+
+export function normalizeProgress(stored?: Partial<UserProgress> | null): UserProgress {
   const today = todayIso();
   const base = defaultProgress();
-  const stored = safeRead<UserProgress>(KEY_PROGRESS, base);
+  if (!stored) return base;
 
   let streak = stored.streakHarian || 1;
   if (stored.tanggalAktifTerakhir && stored.tanggalAktifTerakhir !== today) {
@@ -99,14 +103,24 @@ export function loadProgress(): UserProgress {
   return {
     ...base,
     ...stored,
+    subBab: stored.subBab ?? {},
+    kuis50Jawaban: stored.kuis50Jawaban ?? {},
+    lencana: stored.lencana ?? [],
+    soalSalah: stored.soalSalah ?? [],
     streakHarian: streak,
     tanggalAktifTerakhir: today,
     dailyPlanDone: daily,
   };
 }
 
-export function saveProgress(p: UserProgress): void {
-  safeWrite(KEY_PROGRESS, p);
+export function loadProgress(uid?: string | null): UserProgress {
+  const base = defaultProgress();
+  const stored = safeRead<UserProgress>(progressKeyForUid(uid), base);
+  return normalizeProgress(stored);
+}
+
+export function saveProgress(p: UserProgress, uid?: string | null): void {
+  safeWrite(progressKeyForUid(uid), p);
 }
 
 export function loadSettings(): UserSettings {
@@ -157,9 +171,9 @@ export function saveQuizMismatches(list: QuizKeyMismatch[]): void {
   safeWrite(KEY_QUIZ_MISMATCH, list);
 }
 
-export function resetAllProgress(): UserProgress {
+export function resetAllProgress(uid?: string | null): UserProgress {
   const fresh = defaultProgress();
-  saveProgress(fresh);
+  saveProgress(fresh, uid);
   return fresh;
 }
 
