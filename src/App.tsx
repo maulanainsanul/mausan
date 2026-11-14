@@ -32,6 +32,7 @@ import {
 } from './utils/storage';
 import { BimaGuideStrip } from './components/BimaGuideStrip';
 import { PWAInstallButton } from './components/PWAInstallButton';
+import { ReadyCheckScreen } from './components/ReadyCheckScreen';
 import { CuratorModal } from './pages/CuratorModal';
 import { HomePage } from './pages/HomePage';
 import { MapPage } from './pages/MapPage';
@@ -56,10 +57,10 @@ export default function App() {
   const [curatorOpen, setCuratorOpen] = useState(false);
 
   // Step-by-step interactive guide state ("Apakah kamu sudah siap menjadi juara?")
-  const [readyPromptStatus, setReadyPromptStatus] = useState<'asking' | 'ready' | 'skipped'>('asking');
+  const [readyPromptStatus, setReadyPromptStatus] = useState<'asking' | 'not_ready' | 'ready'>('asking');
   const [guidedMode, setGuidedMode] = useState<boolean>(false);
   const [guidedMessage, setGuidedMessage] = useState<string>(
-    'Halo calon juara! Jawab dulu di Beranda: apakah kamu sudah siap menjadi juara?'
+    'Halo calon juara! Jawab dulu apakah kamu sudah siap menjadi juara.'
   );
 
   // Secret 5-tap logo trigger for Mode Kurator
@@ -72,7 +73,7 @@ export default function App() {
     if (recent.length >= 5) {
       logoTapsRef.current = [];
       setCuratorOpen(true);
-    } else {
+    } else if (readyPromptStatus === 'ready') {
       setActiveSubBab(null);
       setActiveTab('beranda');
     }
@@ -102,9 +103,9 @@ export default function App() {
     speech.speak(msg);
   }, [speech]);
 
-  const handleSkipReady = useCallback(() => {
+  const handleAnswerNotReady = useCallback(() => {
     speech.stop();
-    setReadyPromptStatus('skipped');
+    setReadyPromptStatus('not_ready');
     setGuidedMode(false);
   }, [speech]);
 
@@ -301,33 +302,37 @@ export default function App() {
             Jagoan Fisika
           </button>
 
-          {/* Zone 2: 4 single-line desktop nav links */}
-          <nav className="hidden md:flex items-center gap-6 text-sm font-bold" aria-label="Navigasi utama">
-            {navItems.map((item) => {
-              const isCurrent = !activeSubBab && activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => switchTab(item.id)}
-                  className={`py-1 whitespace-nowrap shrink-0 cursor-pointer border-b-2 transition ${
-                    isCurrent
-                      ? 'border-[#FF7A1A] text-[var(--text-primary)]'
-                      : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-                  }`}
-                >
-                  {item.label}
-                </button>
-              );
-            })}
-          </nav>
+          {/* Zone 2: 4 single-line desktop nav links (locked until Ready) */}
+          {readyPromptStatus === 'ready' && (
+            <nav className="hidden md:flex items-center gap-6 text-sm font-bold" aria-label="Navigasi utama">
+              {navItems.map((item) => {
+                const isCurrent = !activeSubBab && activeTab === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => switchTab(item.id)}
+                    className={`py-1 whitespace-nowrap shrink-0 cursor-pointer border-b-2 transition ${
+                      isCurrent
+                        ? 'border-[#FF7A1A] text-[var(--text-primary)]'
+                        : 'border-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </nav>
+          )}
 
           {/* Zone 3: Primary action (PWA Install or Streak summary) */}
           <div className="flex items-center gap-2 shrink-0">
             <PWAInstallButton />
-            <span className="hidden sm:inline font-mono-num text-xs font-bold text-[var(--text-secondary)] whitespace-nowrap">
-              {progress.xp} XP
-            </span>
+            {readyPromptStatus === 'ready' && (
+              <span className="hidden sm:inline font-mono-num text-xs font-bold text-[var(--text-secondary)] whitespace-nowrap">
+                {progress.xp} XP
+              </span>
+            )}
           </div>
         </div>
       </header>
@@ -342,148 +347,158 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1 w-full max-w-6xl mx-auto px-4 py-6">
-        {guidedMode && (
-          <BimaGuideStrip
+        {readyPromptStatus !== 'ready' ? (
+          <ReadyCheckScreen
+            status={readyPromptStatus}
             speech={speech}
-            settings={settings}
-            guidedMessage={guidedMessage}
-            onUpdateSettings={updateSettings}
-            onDisableGuidedMode={() => setGuidedMode(false)}
+            onSelectReady={handleAnswerReady}
+            onSelectNotReady={handleAnswerNotReady}
           />
-        )}
-
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeSubBab ? `sub-${activeSubBab}` : activeTab}
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -10 }}
-            transition={{ duration: 0.16, ease: 'easeOut' }}
-          >
-            {activeSubBab ? (
-              <SubBabPage
-                subBabId={activeSubBab}
-                progress={progress}
-                settings={settings}
+        ) : (
+          <>
+            {guidedMode && (
+              <BimaGuideStrip
                 speech={speech}
-                guidedMode={guidedMode}
-                onGuideSpeak={guideSpeak}
-                curatorMeta={curatorMeta}
-                quiz50={quiz50}
-                onBackToMap={() => {
-                  setActiveSubBab(null);
-                  setActiveTab('peta');
-                  if (guidedMode) {
-                    window.setTimeout(() => {
-                      guideSpeak(
-                        'Selamat! Kamu kembali di Peta Belajar. Pilih sub-bab berikutnya yang masih berstatus Siap, atau buka tab Latihan untuk Kuis lima puluh Soal.'
-                      );
-                    }, 90);
-                  }
-                }}
-                onUpdateSubBabProgress={updateSubBabProgress}
-                onRecordWrongAttempt={handleRecordWrongAttempt}
-                onAnswerQuiz50={handleAnswerQuiz50}
-                onUpdateCuratorMeta={handleUpdateCuratorMeta}
+                settings={settings}
+                guidedMessage={guidedMessage}
                 onUpdateSettings={updateSettings}
-                onMarkDaily={handleMarkDaily}
-              />
-            ) : activeTab === 'beranda' ? (
-              <HomePage
-                progress={progress}
-                settings={settings}
-                speech={speech}
-                readyPromptStatus={readyPromptStatus}
-                guidedMode={guidedMode}
-                onAnswerReady={handleAnswerReady}
-                onSkipReady={handleSkipReady}
-                onEnableGuideAgain={handleEnableGuideAgain}
-                onUpdateSettings={updateSettings}
-                onOpenSubBab={handleOpenSubBab}
-                onOpenMapForBab={(babId) => {
-                  setMapFilterBab(babId);
-                  switchTab('peta');
-                }}
-                onOpenQuiz50={() => {
-                  setPracticeTab('kuis50');
-                  switchTab('latihan', 'kuis50');
-                }}
-                onStartFiveMinChallenge={() => {
-                  setPracticeTab('tantangan5m');
-                  switchTab('latihan', 'tantangan5m');
-                }}
-                onOpenWrongReview={() => switchTab('profil')}
-              />
-            ) : activeTab === 'peta' ? (
-              <MapPage
-                progress={progress}
-                speech={speech}
-                guidedMode={guidedMode}
-                selectedBab={mapFilterBab}
-                onSelectBab={setMapFilterBab}
-                onOpenSubBab={handleOpenSubBab}
-              />
-            ) : activeTab === 'latihan' ? (
-              <PracticeHubPage
-                initialTab={practiceTab}
-                progress={progress}
-                settings={settings}
-                speech={speech}
-                guidedMode={guidedMode}
-                onGuideSpeak={guideSpeak}
-                quiz50={quiz50}
-                onAnswerQuiz50={handleAnswerQuiz50}
-                onImportQuiz50={handleImportQuiz50}
-                onRecordWrongAttempt={handleRecordWrongAttempt}
-                onAddXp={(xp) =>
-                  setProgress((prev) => {
-                    const next = { ...prev, xp: prev.xp + xp };
-                    next.lencana = computeEarnedBadges(next);
-                    saveProgress(next);
-                    return next;
-                  })
-                }
-                onMarkDailyLatihan={() => handleMarkDaily('latihan3')}
-              />
-            ) : (
-              <ProfilePage
-                progress={progress}
-                settings={settings}
-                speech={speech}
-                onUpdateSettings={updateSettings}
-                onClearWrongAttempt={handleClearWrongAttempt}
-                onResetProgress={() => {
-                  setProgress(resetAllProgress());
-                }}
+                onDisableGuidedMode={() => setGuidedMode(false)}
               />
             )}
-          </motion.div>
-        </AnimatePresence>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeSubBab ? `sub-${activeSubBab}` : activeTab}
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -10 }}
+                transition={{ duration: 0.16, ease: 'easeOut' }}
+              >
+                {activeSubBab ? (
+                  <SubBabPage
+                    subBabId={activeSubBab}
+                    progress={progress}
+                    settings={settings}
+                    speech={speech}
+                    guidedMode={guidedMode}
+                    onGuideSpeak={guideSpeak}
+                    curatorMeta={curatorMeta}
+                    quiz50={quiz50}
+                    onBackToMap={() => {
+                      setActiveSubBab(null);
+                      setActiveTab('peta');
+                      if (guidedMode) {
+                        window.setTimeout(() => {
+                          guideSpeak(
+                            'Selamat! Kamu kembali di Peta Belajar. Pilih sub-bab berikutnya yang masih berstatus Siap, atau buka tab Latihan untuk Kuis lima puluh Soal.'
+                          );
+                        }, 90);
+                      }
+                    }}
+                    onUpdateSubBabProgress={updateSubBabProgress}
+                    onRecordWrongAttempt={handleRecordWrongAttempt}
+                    onAnswerQuiz50={handleAnswerQuiz50}
+                    onUpdateCuratorMeta={handleUpdateCuratorMeta}
+                    onUpdateSettings={updateSettings}
+                    onMarkDaily={handleMarkDaily}
+                  />
+                ) : activeTab === 'beranda' ? (
+                  <HomePage
+                    progress={progress}
+                    settings={settings}
+                    speech={speech}
+                    guidedMode={guidedMode}
+                    onEnableGuideAgain={handleEnableGuideAgain}
+                    onUpdateSettings={updateSettings}
+                    onOpenSubBab={handleOpenSubBab}
+                    onOpenMapForBab={(babId) => {
+                      setMapFilterBab(babId);
+                      switchTab('peta');
+                    }}
+                    onOpenQuiz50={() => {
+                      setPracticeTab('kuis50');
+                      switchTab('latihan', 'kuis50');
+                    }}
+                    onStartFiveMinChallenge={() => {
+                      setPracticeTab('tantangan5m');
+                      switchTab('latihan', 'tantangan5m');
+                    }}
+                    onOpenWrongReview={() => switchTab('profil')}
+                  />
+                ) : activeTab === 'peta' ? (
+                  <MapPage
+                    progress={progress}
+                    speech={speech}
+                    guidedMode={guidedMode}
+                    selectedBab={mapFilterBab}
+                    onSelectBab={setMapFilterBab}
+                    onOpenSubBab={handleOpenSubBab}
+                  />
+                ) : activeTab === 'latihan' ? (
+                  <PracticeHubPage
+                    initialTab={practiceTab}
+                    progress={progress}
+                    settings={settings}
+                    speech={speech}
+                    guidedMode={guidedMode}
+                    onGuideSpeak={guideSpeak}
+                    quiz50={quiz50}
+                    onAnswerQuiz50={handleAnswerQuiz50}
+                    onImportQuiz50={handleImportQuiz50}
+                    onRecordWrongAttempt={handleRecordWrongAttempt}
+                    onAddXp={(xp) =>
+                      setProgress((prev) => {
+                        const next = { ...prev, xp: prev.xp + xp };
+                        next.lencana = computeEarnedBadges(next);
+                        saveProgress(next);
+                        return next;
+                      })
+                    }
+                    onMarkDailyLatihan={() => handleMarkDaily('latihan3')}
+                  />
+                ) : (
+                  <ProfilePage
+                    progress={progress}
+                    settings={settings}
+                    speech={speech}
+                    onUpdateSettings={updateSettings}
+                    onClearWrongAttempt={handleClearWrongAttempt}
+                    onResetProgress={() => {
+                      setProgress(resetAllProgress());
+                    }}
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </>
+        )}
       </main>
 
-      {/* Mobile Bottom Navigation (4 tabs) */}
-      <nav
-        aria-label="Navigasi bawah"
-        className="md:hidden fixed bottom-0 left-0 right-0 z-40 h-16 bg-[var(--bg-surface)]/95 backdrop-blur-md border-t border-[var(--border-hairline)] grid grid-cols-4 items-center"
-      >
-        {navItems.map((item) => {
-          const Icon = item.icon;
-          const isCurrent = !activeSubBab && activeTab === item.id;
-          return (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => switchTab(item.id)}
-              className={`min-h-[48px] flex flex-col items-center justify-center gap-0.5 cursor-pointer ${
-                isCurrent ? 'text-[#FF7A1A] font-bold' : 'text-[var(--text-secondary)]'
-              }`}
-            >
-              <Icon className="w-5 h-5" />
-              <span className="text-[11px] leading-none">{item.label}</span>
-            </button>
-          );
-        })}
-      </nav>
+      {/* Mobile Bottom Navigation (4 tabs, only after Ready) */}
+      {readyPromptStatus === 'ready' && (
+        <nav
+          aria-label="Navigasi bawah"
+          className="md:hidden fixed bottom-0 left-0 right-0 z-40 h-16 bg-[var(--bg-surface)]/95 backdrop-blur-md border-t border-[var(--border-hairline)] grid grid-cols-4 items-center"
+        >
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isCurrent = !activeSubBab && activeTab === item.id;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => switchTab(item.id)}
+                className={`min-h-[48px] flex flex-col items-center justify-center gap-0.5 cursor-pointer ${
+                  isCurrent ? 'text-[#FF7A1A] font-bold' : 'text-[var(--text-secondary)]'
+                }`}
+              >
+                <Icon className="w-5 h-5" />
+                <span className="text-[11px] leading-none">{item.label}</span>
+              </button>
+            );
+          })}
+        </nav>
+      )}
 
       {/* Hidden Curator Modal (opened by 5 taps on logo) */}
       <CuratorModal

@@ -27,10 +27,7 @@ interface HomePageProps {
   progress: UserProgress;
   settings: UserSettings;
   speech: UseSpeechGuideReturn;
-  readyPromptStatus: 'asking' | 'ready' | 'skipped';
   guidedMode: boolean;
-  onAnswerReady: () => void;
-  onSkipReady: () => void;
   onEnableGuideAgain: () => void;
   onUpdateSettings: (patch: Partial<UserSettings>) => void;
   onOpenSubBab: (id: SubBabId) => void;
@@ -40,17 +37,11 @@ interface HomePageProps {
   onOpenWrongReview: () => void;
 }
 
-const READY_QUESTION_VOICE =
-  'Halo calon juara fisika! Aku Bima, pemandumu di sini. Apakah kamu sudah siap menjadi juara? Kalau sudah siap, pencet tombol oranye Sudah Siap! Aku akan langsung memandumu memilih sub-bab dan menemani langkah demi langkah sampai selesai.';
-
 export const HomePage: React.FC<HomePageProps> = ({
   progress,
   settings,
   speech,
-  readyPromptStatus,
   guidedMode,
-  onAnswerReady,
-  onSkipReady,
   onEnableGuideAgain,
   onUpdateSettings,
   onOpenSubBab,
@@ -106,67 +97,6 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div className="space-y-8">
-      {/* Check-in Awal: "Apakah kamu sudah siap menjadi juara?" */}
-      {readyPromptStatus === 'asking' && (
-        <section
-          aria-label="Sambutan Pemandu Bima"
-          className="rounded-[28px] border-2 border-[#FF7A1A]/50 bg-[var(--bg-surface)] p-5 sm:p-7"
-        >
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
-            <div className="rounded-3xl bg-[var(--bg-surface-soft)] p-3 shrink-0">
-              <VoltaMascot
-                expression="menyemangati"
-                speaking={speech.isSpeaking && !speech.isPaused}
-                mouthOpen={speech.mouthOpen}
-                size={88}
-              />
-            </div>
-
-            <div className="flex-1 min-w-0">
-              <p className="text-xs font-bold text-[#2F6BFF]">
-                Pemandu Suara · {speech.activeVoiceLabel}
-              </p>
-              <h1 className="font-display text-2xl sm:text-3xl font-bold text-[var(--text-primary)] mt-1">
-                Apakah kamu sudah siap menjadi juara?
-              </h1>
-              <p className="text-sm sm:text-base text-[var(--text-secondary)] mt-2 max-w-2xl">
-                Jawab <strong>Sudah Siap!</strong> maka Bima (suara normal anak laki-laki) akan langsung memandumu memilih sub-bab pertama dan memberi arahan otomatis setiap kali kamu menyelesaikan satu langkah.
-              </p>
-
-              <div className="mt-4 flex flex-wrap items-center gap-3">
-                <button
-                  type="button"
-                  onClick={onAnswerReady}
-                  className="min-h-[48px] px-6 py-2.5 rounded-2xl bg-[#FF7A1A] text-white font-bold text-sm sm:text-base inline-flex items-center gap-2 hover:opacity-95 active:scale-[0.98] transition cursor-pointer"
-                >
-                  <CheckCircle2 className="w-5 h-5" />
-                  Sudah Siap! Mulai Dipandu Bima
-                </button>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    speech.isSpeaking ? speech.stop() : speech.speak(READY_QUESTION_VOICE)
-                  }
-                  className="min-h-[48px] px-4 py-2.5 rounded-2xl bg-[#2F6BFF] text-white font-bold text-sm inline-flex items-center gap-2 cursor-pointer"
-                >
-                  <Volume2 className="w-4 h-4" />
-                  {speech.isSpeaking ? 'Hentikan Suara' : 'Dengar Pertanyaan Bima'}
-                </button>
-
-                <button
-                  type="button"
-                  onClick={onSkipReady}
-                  className="min-h-[48px] px-4 py-2.5 rounded-2xl border border-[var(--border-hairline)] bg-[var(--bg-surface-soft)] text-sm font-bold text-[var(--text-secondary)] hover:text-[var(--text-primary)] cursor-pointer"
-                >
-                  Jelajah Sendiri
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Hero Banner — Volta + Continue Learning + Streak */}
       <section className="rounded-[28px] border border-[var(--border-hairline)] bg-[var(--bg-surface)] p-5 sm:p-7">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
@@ -232,7 +162,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   Tantangan 5 Menit
                 </button>
 
-                {!guidedMode && readyPromptStatus !== 'asking' && (
+                {!guidedMode && (
                   <button
                     type="button"
                     onClick={onEnableGuideAgain}
